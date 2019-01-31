@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="MTGScoreboard" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/MTGScoreboard" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-DSFML_STATIC" />
+					<Add directory="/usr/local/include/SFML" />
+					<Add directory="/usr/local/include/TGUI" />
+					<Add directory="/usr/include/boost" />
+					<Add directory="/usr/include/cppconn" />
+				</Compiler>
+				<Linker>
+					<Add option="-pthread" />
+					<Add option="-lmysqlcppconn" />
+					<Add library="sfml-audio" />
+					<Add library="sfml-graphics" />
+					<Add library="sfml-network" />
+					<Add library="sfml-system" />
+					<Add library="sfml-window" />
+					<Add library="tgui" />
+					<Add directory="/usr/local/lib" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/MTGScoreboard" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Option projectLinkerOptionsRelation="0" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-DSFML_STATIC" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-pthread" />
+					<Add option="-lmysqlcppconn" />
+					<Add library="sfml-audio" />
+					<Add library="sfml-graphics" />
+					<Add library="sfml-network" />
+					<Add library="sfml-system" />
+					<Add library="sfml-window" />
+					<Add library="tgui" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-DSFML_STATIC" />
+			<Add directory="/usr/local/include/SFML" />
+			<Add directory="/usr/local/include/TGUI" />
+			<Add directory="/usr/include/boost" />
+			<Add directory="/usr/include/cppconn" />
+		</Compiler>
+		<Linker>
+			<Add option="-pthread" />
+			<Add option="-lmysqlcppconn" />
+			<Add library="sfml-audio" />
+			<Add library="sfml-graphics" />
+			<Add library="sfml-network" />
+			<Add library="sfml-system" />
+			<Add library="sfml-window" />
+			<Add library="tgui" />
+			<Add directory="/usr/local/lib" />
+		</Linker>
+		<Unit filename="constants.cpp" />
+		<Unit filename="constants.h" />
+		<Unit filename="gamePanel.cpp" />
+		<Unit filename="gamePanel.h" />
+		<Unit filename="gamePanelEmperor.cpp" />
+		<Unit filename="gamePanelEmperor.h" />
+		<Unit filename="gameSetupPanel.cpp" />
+		<Unit filename="gameSetupPanel.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="panelManager.cpp" />
+		<Unit filename="panelManager.h" />
+		<Unit filename="startupScreen.cpp" />
+		<Unit filename="startupScreen.h" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

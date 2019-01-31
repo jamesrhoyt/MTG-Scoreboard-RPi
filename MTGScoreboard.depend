@@ -1,0 +1,277 @@
+# depslib dependency file v1.0
+1546893229 source:/home/pi/projects/MTGScoreboard/constants.cpp
+	"constants.h"
+
+1547747701 /home/pi/projects/MTGScoreboard/constants.h
+	<chrono>
+	<connection.h>
+	<driver.h>
+	<prepared_statement.h>
+	<resultset.h>
+	<statement.h>
+	<functional>
+	<iostream>
+	<mysql_connection.h>
+	<mysql_driver.h>
+	<mysql_error.h>
+	<Graphics.hpp>
+	<Gui.hpp>
+	<Widget.hpp>
+	<Widgets/ClickableWidget.hpp>
+	<Widgets/Label.hpp>
+	<Widgets/Scrollbar.hpp>
+	<Widgets/TextBox.hpp>
+	<thread>
+
+1541791881 /usr/include/boost/chrono
+
+1452624158 /usr/include/cppconn/connection.h
+	<map>
+	"build_config.h"
+	"warning.h"
+	"sqlstring.h"
+	"variant.h"
+
+1452624158 /usr/include/cppconn/build_config.h
+
+1452624158 /usr/include/cppconn/warning.h
+	<stdexcept>
+	<string>
+	<memory>
+	"sqlstring.h"
+
+1452624158 /usr/include/cppconn/sqlstring.h
+	<string>
+	<algorithm>
+	"build_config.h"
+	<iostream>
+
+1541791881 /usr/include/boost/algorithm
+
+1452624158 /usr/include/cppconn/variant.h
+	<string>
+	<map>
+	<list>
+	<algorithm>
+	<typeinfo>
+	"build_config.h"
+	"sqlstring.h"
+	"exception.h"
+
+1479185790 /usr/include/cppconn/exception.h
+	"build_config.h"
+	<stdexcept>
+	<string>
+	<memory>
+
+1452624158 /usr/include/cppconn/driver.h
+	"connection.h"
+	"build_config.h"
+
+1452624158 /usr/include/cppconn/prepared_statement.h
+	<iostream>
+	"statement.h"
+
+1452624158 /usr/include/cppconn/statement.h
+	"config.h"
+	"resultset.h"
+	<string>
+
+1479185790 /usr/include/cppconn/config.h
+	<stdint.h>
+	<inttypes.h>
+	<stdint.h>
+
+1452624158 /usr/include/cppconn/resultset.h
+	"config.h"
+	<list>
+	<map>
+	<iostream>
+	"sqlstring.h"
+	"resultset_metadata.h"
+
+1452624158 /usr/include/cppconn/resultset_metadata.h
+	"sqlstring.h"
+	"datatype.h"
+
+1452624158 /usr/include/cppconn/datatype.h
+
+1541791881 /usr/include/boost/functional
+
+1525751320 /usr/local/include/SFML/Graphics.hpp
+	<SFML/Window.hpp>
+	<SFML/Graphics/BlendMode.hpp>
+	<SFML/Graphics/CircleShape.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/ConvexShape.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Glyph.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Graphics/PrimitiveType.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/RectangleShape.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/RenderTexture.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/Shader.hpp>
+	<SFML/Graphics/Shape.hpp>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/Transform.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Vertex.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+	<SFML/Graphics/View.hpp>
+
+1533458324 /usr/local/include/TGUI/Gui.hpp
+	<queue>
+	<TGUI/Container.hpp>
+
+1533458324 /usr/local/include/TGUI/Widget.hpp
+	<TGUI/Global.hpp>
+	<TGUI/Signal.hpp>
+	<TGUI/Transformable.hpp>
+	<TGUI/Texture.hpp>
+	<TGUI/Color.hpp>
+	<TGUI/Font.hpp>
+	<TGUI/Loading/Deserializer.hpp>
+
+1533458324 /usr/local/include/TGUI/Widgets/ClickableWidget.hpp
+	<TGUI/Widget.hpp>
+
+1533458324 /usr/local/include/TGUI/Widgets/Label.hpp
+	<TGUI/Widgets/ClickableWidget.hpp>
+
+1533458324 /usr/local/include/TGUI/Widgets/Scrollbar.hpp
+	<TGUI/Widget.hpp>
+
+1533458324 /usr/local/include/TGUI/Widgets/TextBox.hpp
+	<TGUI/Widget.hpp>
+
+1541791881 /usr/include/boost/thread
+
+1548266680 source:/home/pi/projects/MTGScoreboard/gameSetupPanel.cpp
+	"gameSetupPanel.h"
+
+1547670735 /home/pi/projects/MTGScoreboard/gameSetupPanel.h
+	<chrono>
+	<functional>
+	<Graphics.hpp>
+	<Gui.hpp>
+	<Signal.hpp>
+	<TGUI.hpp>
+	<Widget.hpp>
+	<Widgets/Button.hpp>
+	<Widgets/ClickableWidget.hpp>
+	<Widgets/ComboBox.hpp>
+	<Widgets/Label.hpp>
+	<Widgets/ListBox.hpp>
+	<Widgets/Scrollbar.hpp>
+	<Widgets/TextBox.hpp>
+	<thread>
+	"constants.h"
+
+1533458324 /usr/local/include/TGUI/Signal.hpp
+	<TGUI/Global.hpp>
+	<TGUI/Callback.hpp>
+	<map>
+	<deque>
+	<memory>
+	<cassert>
+	<functional>
+
+1533458324 /usr/local/include/TGUI/TGUI.hpp
+	<TGUI/Clipboard.hpp>
+	<TGUI/Animation.hpp>
+	<TGUI/Widget.hpp>
+	<TGUI/Container.hpp>
+	<TGUI/HorizontalLayout.hpp>
+	<TGUI/VerticalLayout.hpp>
+	<TGUI/Gui.hpp>
+	<TGUI/Loading/Deserializer.hpp>
+	<TGUI/Loading/Serializer.hpp>
+	<TGUI/Loading/Theme.hpp>
+	<TGUI/Loading/WidgetLoader.hpp>
+	<TGUI/Loading/WidgetSaver.hpp>
+	<TGUI/Widgets/Button.hpp>
+	<TGUI/Widgets/Canvas.hpp>
+	<TGUI/Widgets/ChatBox.hpp>
+	<TGUI/Widgets/CheckBox.hpp>
+	<TGUI/Widgets/ChildWindow.hpp>
+	<TGUI/Widgets/ClickableWidget.hpp>
+	<TGUI/Widgets/ComboBox.hpp>
+	<TGUI/Widgets/EditBox.hpp>
+	<TGUI/Widgets/Grid.hpp>
+	<TGUI/Widgets/Knob.hpp>
+	<TGUI/Widgets/Label.hpp>
+	<TGUI/Widgets/ListBox.hpp>
+	<TGUI/Widgets/MenuBar.hpp>
+	<TGUI/Widgets/MessageBox.hpp>
+	<TGUI/Widgets/Panel.hpp>
+	<TGUI/Widgets/Picture.hpp>
+	<TGUI/Widgets/ProgressBar.hpp>
+	<TGUI/Widgets/RadioButton.hpp>
+	<TGUI/Widgets/Scrollbar.hpp>
+	<TGUI/Widgets/Slider.hpp>
+	<TGUI/Widgets/SpinButton.hpp>
+	<TGUI/Widgets/Tab.hpp>
+	<TGUI/Widgets/TextBox.hpp>
+	<TGUI/Widgets/ToolTip.hpp>
+
+1533458324 /usr/local/include/TGUI/Widgets/Button.hpp
+	<TGUI/Widgets/Label.hpp>
+
+1533458324 /usr/local/include/TGUI/Widgets/ComboBox.hpp
+	<TGUI/Widgets/Label.hpp>
+	<TGUI/Widgets/ListBox.hpp>
+
+1533458324 /usr/local/include/TGUI/Widgets/ListBox.hpp
+	<TGUI/Widgets/Scrollbar.hpp>
+
+1548877076 source:/home/pi/projects/MTGScoreboard/gamePanel.cpp
+	"gamePanel.h"
+
+1548282761 /home/pi/projects/MTGScoreboard/gamePanel.h
+	<cmath>
+	<string>
+	<sstream>
+	<stdlib.h>
+	<vector>
+	<Graphics.hpp>
+	<Gui.hpp>
+	"constants.h"
+
+1548875039 source:/home/pi/projects/MTGScoreboard/main.cpp
+	<cstdio>
+	<iostream>
+	"startupScreen.h"
+
+1547673206 /home/pi/projects/MTGScoreboard/startupScreen.h
+	<cmath>
+	<Graphics.hpp>
+	"panelManager.h"
+
+1548285088 /home/pi/projects/MTGScoreboard/panelManager.h
+	<string>
+	<sstream>
+	<thread>
+	<vector>
+	"gamePanel.h"
+	"gamePanelEmperor.h"
+	"gameSetupPanel.h"
+
+1548875899 source:/home/pi/projects/MTGScoreboard/panelManager.cpp
+	"panelManager.h"
+
+1548698429 source:/home/pi/projects/MTGScoreboard/startupScreen.cpp
+	"startupScreen.h"
+
+1548281079 source:/home/pi/projects/MTGScoreboard/gamePanelEmperor.cpp
+	"gamePanelEmperor.h"
+
+1548268834 /home/pi/projects/MTGScoreboard/gamePanelEmperor.h
+	"gamePanel.h"
+
