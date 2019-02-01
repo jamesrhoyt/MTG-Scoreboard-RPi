@@ -51,27 +51,27 @@ Install PHP: ```sudo apt-get install php libapache2-mod-php```
 Install and Set Up MySQL:
 
 ```sudo apt-get install mysql-server php-mysql```
-Choose "UNIX Socket" as the Connection Method for the MySQL database
-Set the username of the database's administrative user to "root"
-Set the password of the database's administrative user to "mtgscoreboard"
-Set the MySQL username for PHPMyAdmin to "root"
-Set the MySQL database name for PHPMyAdmin to "phpmyadmin"
-Choose "apache2" as the web server to reconfigure automatically
-If you get Error 1045, choose "Ignore"
+*Choose "UNIX Socket" as the Connection Method for the MySQL database
+*Set the username of the database's administrative user to "root"
+*Set the password of the database's administrative user to "mtgscoreboard"
+*Set the MySQL username for PHPMyAdmin to "root"
+*Set the MySQL database name for PHPMyAdmin to "phpmyadmin"
+*Choose "apache2" as the web server to reconfigure automatically
+*If you get Error 1045, choose "Ignore"
 ```sudo service apache2 restart```
 
 Install and Set Up PHPMyAdmin:
 
 ```sudo apt-get install phpmyadmin```
-Set the password for the MySQL "root" user to "mtgscoreboard"
-Confirm the password for the MySQL "root" user: "mtgscoreboard"
+*Set the password for the MySQL "root" user to "mtgscoreboard"
+*Confirm the password for the MySQL "root" user: "mtgscoreboard"
 ```sudo mysql_secure_installation```
-Enter the current password for "root": "mtgscoreboard"
-Choose "n" when asked to "Change the root password"
-Choose "y" when asked to "Remove anonymous users"
-Choose "y" when asked to "Disallow root login remotely"
-Choose "y" when asked to "Remove test database and access to it"
-Choose "y" when asked to "Reload privilege tables now"
+*Enter the current password for "root": "mtgscoreboard"
+*Choose "n" when asked to "Change the root password"
+*Choose "y" when asked to "Remove anonymous users"
+*Choose "y" when asked to "Disallow root login remotely"
+*Choose "y" when asked to "Remove test database and access to it"
+*Choose "y" when asked to "Reload privilege tables now"
 
 Add simulinks:
 
