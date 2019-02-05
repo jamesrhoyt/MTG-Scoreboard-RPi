@@ -341,24 +341,24 @@ void panelManager::addPanel(int gameID)
 		//Create an object to hold the entered "name" of this game, which will distinguish it from other Remote Games.
 		sql::SQLString gameName;
 		//Pull the name of the game whose ID matches the one passed in via "gameID".
-		res = stmt->executeQuery(sql::SQLString("SELECT name FROM games WHERE id=").append(std::to_string(gameID)));
+		res = stmt->executeQuery(sql::SQLString("SELECT name, game_type FROM games WHERE id=").append(std::to_string(gameID)));
 		while (res->next())
 		{
 			gameName = res->getString(1);
-		}
-		//Add a new panel to the vector of panels, using the game's ID and its "name".
-		//panels.push_back(gamePanel(gameID, gameName));
-		//If this is a non-Emperor game, use the generic Panel constructor.
-        if (res->getInt(2) != 2)
-        {
-            //std::unique_ptr<gamePanel> newPanel(new gamePanel(gameID, gameName));
-            panels.push_back(std::unique_ptr<gamePanel>(new gamePanel(gameID, gameName)));
-        }
-        //Otherwise, use the Emperor Panel constructor.
-        else
-        {
-            //std::unique_ptr<gamePanel> newPanel(new gamePanelEmperor(gameID, gameName));
-            panels.push_back(std::unique_ptr<gamePanel>(new gamePanelEmperor(gameID, gameName)));
+            //Add a new panel to the vector of panels, using the game's ID and its "name".
+            //panels.push_back(gamePanel(gameID, gameName));
+            //If this is a non-Emperor game, use the generic Panel constructor.
+            if (res->getInt(2) != 2)
+            {
+                //std::unique_ptr<gamePanel> newPanel(new gamePanel(gameID, gameName));
+                panels.push_back(std::unique_ptr<gamePanel>(new gamePanel(gameID, gameName)));
+            }
+            //Otherwise, use the Emperor Panel constructor.
+            else
+            {
+                //std::unique_ptr<gamePanel> newPanel(new gamePanelEmperor(gameID, gameName));
+                panels.push_back(std::unique_ptr<gamePanel>(new gamePanelEmperor(gameID, gameName)));
+            }
         }
 	}
 	//Resize and reposition the rest of the GamePanels to make room for this one.

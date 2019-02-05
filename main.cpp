@@ -13,8 +13,8 @@ int main()
 	con = driver->connect("tcp://127.0.0.1:3306/mtg", "root", "mtgscoreboard");
 	stmt = con->createStatement();
 	//Create the Window object.
-	//window = new sf::RenderWindow(VideoMode::getDesktopMode(), "MTG Scoreboard", Style:: Fullscreen);
-	window = new sf::RenderWindow(sf::VideoMode(640,480)/*VideoMode::getDesktopMode()*/, "MTG Scoreboard"/*, Style:: Fullscreen*/);
+	window = new sf::RenderWindow(VideoMode::getDesktopMode(), "MTG Scoreboard", Style::Fullscreen);
+	//window = new sf::RenderWindow(sf::VideoMode(640,480)/*VideoMode::getDesktopMode()*/, "MTG Scoreboard"/*, Style:: Fullscreen*/);
 	window->setVerticalSyncEnabled(true);
 	window->setMouseCursorVisible(true);
 	window->setActive(true);

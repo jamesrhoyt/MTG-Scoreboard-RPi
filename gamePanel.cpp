@@ -693,7 +693,7 @@ void gamePanel::resize(int width, int height)
 		//Resize the rest of the Life Counters.
 		playerList[i].lifeCounter.setCharacterSize(playerList[0].lifeCounter.getCharacterSize());
 		//Resize the Display Names and Avatars.
-		playerList[i].displayName->setTextSize(playerList[i].lifeCounter.getCharacterSize() / 6);
+		playerList[i].displayName->setTextSize((int)(playerList[i].lifeCounter.getCharacterSize() / 6));
 		playerList[i].displayName->setSize(playerList[i].displayName->getTextSize() * playerList[i].name.length(), playerList[i].displayName->getTextSize() + 2);
 		playerList[i].avatar.setScale((playerList[i].displayName->getFullSize().y * 2) / playerList[i].avatar.getTexture()->getSize().x, (playerList[i].displayName->getFullSize().y * 2) / playerList[i].avatar.getTexture()->getSize().y);
 		if (teamSizeID > 0)
@@ -721,7 +721,7 @@ void gamePanel::resize(int width, int height)
 		playerList[i].buttonLifeMinusFive.setScale(playerList[i].buttonLifePlusOne.getScale());
 		playerList[i].buttonLifeMinusTen.setScale(playerList[i].buttonLifePlusOne.getScale());
 		//Resize each of the Poison Counters.
-		playerList[i].poisonCounter.setCharacterSize(playerList[i].lifeCounter.getCharacterSize() / 2);
+		playerList[i].poisonCounter.setCharacterSize((int)(playerList[i].lifeCounter.getCharacterSize() / 2));
 		//Resize all of the Poison Buttons.
 		playerList[i].buttonPoisonMinusOne.scale(playerList[i].poisonCounter.getGlobalBounds().height / playerList[i].buttonPoisonMinusOne.getGlobalBounds().height,
 			playerList[i].poisonCounter.getGlobalBounds().height / playerList[i].buttonPoisonMinusOne.getGlobalBounds().height);

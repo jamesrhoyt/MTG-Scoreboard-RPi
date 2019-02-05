@@ -231,7 +231,7 @@
 1533458324 /usr/local/include/TGUI/Widgets/ListBox.hpp
 	<TGUI/Widgets/Scrollbar.hpp>
 
-1548877076 source:/home/pi/projects/MTGScoreboard/gamePanel.cpp
+1549391858 source:/home/pi/projects/MTGScoreboard/gamePanel.cpp
 	"gamePanel.h"
 
 1548282761 /home/pi/projects/MTGScoreboard/gamePanel.h
@@ -244,7 +244,7 @@
 	<Gui.hpp>
 	"constants.h"
 
-1548875039 source:/home/pi/projects/MTGScoreboard/main.cpp
+1549395104 source:/home/pi/projects/MTGScoreboard/main.cpp
 	<cstdio>
 	<iostream>
 	"startupScreen.h"
@@ -263,7 +263,7 @@
 	"gamePanelEmperor.h"
 	"gameSetupPanel.h"
 
-1548875899 source:/home/pi/projects/MTGScoreboard/panelManager.cpp
+1549394420 source:/home/pi/projects/MTGScoreboard/panelManager.cpp
 	"panelManager.h"
 
 1548698429 source:/home/pi/projects/MTGScoreboard/startupScreen.cpp
