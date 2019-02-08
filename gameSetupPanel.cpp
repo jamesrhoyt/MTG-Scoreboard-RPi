@@ -39,7 +39,7 @@ gameSetupPanel::gameSetupPanel()
 	//Set up the TextBox to add Players to the Database.
 	addPlayerTextbox = tgui::TextBox::create();
 	gui->add(addPlayerTextbox);
-	addPlayerTextbox->setFont(*font_dejavu);
+	addPlayerTextbox->getRenderer()->setFont(*font_dejavu);
 	addPlayerTextbox->setReadOnly(false);
 	addPlayerTextbox->setMaximumCharacters(14);
 	addPlayerTextbox->setTextSize(header.getCharacterSize() / 2);
@@ -55,7 +55,7 @@ gameSetupPanel::gameSetupPanel()
 	//Set up the Button to add Players to the Database.
 	addPlayerButton = tgui::Button::create();
 	gui->add(addPlayerButton);
-	addPlayerButton->setFont(*font_dejavu);
+	addPlayerButton->getRenderer()->setFont(*font_dejavu);
 	addPlayerButton->setTextSize(addPlayerTextbox->getTextSize() * .9);
 	addPlayerButton->getRenderer()->setTextColor(sf::Color::Black);
 	addPlayerButton->getRenderer()->setBorders(tgui::Borders(3));
@@ -91,7 +91,7 @@ gameSetupPanel::gameSetupPanel()
 	//Set up the Team Size Drop-down.
 	teamSizeList = tgui::ComboBox::create();
 	gui->add(teamSizeList);
-	teamSizeList->setFont(*font_dejavu);
+	teamSizeList->getRenderer()->setFont(*font_dejavu);
 	teamSizeList->setTextSize(20);
 	//Make the TextBox background light grey.
 	teamSizeList->getRenderer()->setBackgroundColor(tgui::Color(192, 192, 192, 255));
@@ -130,7 +130,7 @@ gameSetupPanel::gameSetupPanel()
 	//Set up the Game Type Drop-down.
 	gameTypeList = tgui::ComboBox::create();
 	gui->add(gameTypeList);
-	gameTypeList->setFont(*font_dejavu);
+	gameTypeList->getRenderer()->setFont(*font_dejavu);
 	gameTypeList->setTextSize(20);
 	//Make the TextBox background light grey.
 	gameTypeList->getRenderer()->setBackgroundColor(tgui::Color(192, 192, 192, 255));
@@ -151,7 +151,7 @@ gameSetupPanel::gameSetupPanel()
 	//Set up the "Create Game" Button.
 	createGameButton = tgui::Button::create();
 	gui->add(createGameButton);
-	createGameButton->setFont(*font_dejavu);
+	createGameButton->getRenderer()->setFont(*font_dejavu);
 	createGameButton->setTextSize(18);
 	createGameButton->getRenderer()->setTextColor(sf::Color::Black);
 	createGameButton->setText("CREATE");
@@ -181,27 +181,27 @@ void gameSetupPanel::slideOutCoroutine(sf::Sprite& tab)
 		tab.move(-distance, 0);
 		background.move(-distance, 0);
 		header.move(-distance, 0);
-		addPlayerTextbox->move(-distance, 0);
-		addPlayerButton->move(-distance, 0);
+		addPlayerTextbox->setPosition(addPlayerTextbox->getPosition() + Vector2f(-distance, 0));
+		addPlayerButton->setPosition(addPlayerButton->getPosition() + Vector2f(-distance, 0));
 		playerListHeader.move(-distance, 0);
 		gameTypeHeader.move(-distance, 0);
 		gameSetupButtonAdd.move(-distance, 0);
-		gameTypeList->move(-distance, 0);
+		gameTypeList->setPosition(gameTypeList->getPosition() + Vector2f(-distance, 0));
 		teamSizeHeader.move(-distance, 0);
-		teamSizeList->move(-distance, 0);
-		createGameButton->move(-distance, 0);
+		teamSizeList->setPosition(teamSizeList->getPosition() + Vector2f(-distance, 0));
+		createGameButton->setPosition(createGameButton->getPosition() + Vector2f(-distance, 0));
 		for (int i = 0; i < (int)playerNumbers.size(); i++)
 		{
 			playerNumbers[i].move(-distance, 0);
 			gameSetupButtonsRemove[i].move(-distance, 0);
-			playerEntryFields[i]->move(-distance, 0);
+			playerEntryFields[i]->setPosition(playerEntryFields[i]->getPosition() + Vector2f(-distance, 0));
 			if (teamSizeList->getSelectedItemIndex() > 0)
 			{
-				playerEntryFields2[i]->move(-distance, 0);
+				playerEntryFields2[i]->setPosition(playerEntryFields2[i]->getPosition() + Vector2f(-distance, 0));
 			}
 			if (teamSizeList->getSelectedItemIndex() == 2)
 			{
-				playerEntryFields3[i]->move(-distance, 0);
+				playerEntryFields3[i]->setPosition(playerEntryFields3[i]->getPosition() + Vector2f(-distance, 0));
 			}
 		}
 		//Yield the thread for one frame, so the movement is actually visible.
@@ -217,27 +217,27 @@ void gameSetupPanel::slideOutCoroutine(sf::Sprite& tab)
 		background.move(difference, 0);
 		tab.move(difference, 0);
 		header.move(difference, 0);
-		addPlayerTextbox->move(difference, 0);
-		addPlayerButton->move(difference, 0);
+		addPlayerTextbox->setPosition(addPlayerTextbox->getPosition() + Vector2f(difference, 0));
+		addPlayerButton->setPosition(addPlayerButton->getPosition() + Vector2f(difference, 0));
 		playerListHeader.move(difference, 0);
 		gameTypeHeader.move(difference, 0);
 		gameSetupButtonAdd.move(difference, 0);
-		gameTypeList->move(difference, 0);
+		gameTypeList->setPosition(gameTypeList->getPosition() + Vector2f(difference, 0));
 		teamSizeHeader.move(difference, 0);
-		teamSizeList->move(difference, 0);
-		createGameButton->move(difference, 0);
+		teamSizeList->setPosition(teamSizeList->getPosition() + Vector2f(difference, 0));
+		createGameButton->setPosition(createGameButton->getPosition() + Vector2f(difference, 0));
 		for (int i = 0; i < (int)playerNumbers.size(); i++)
 		{
 			playerNumbers[i].move(difference, 0);
 			gameSetupButtonsRemove[i].move(difference, 0);
-			playerEntryFields[i]->move(difference, 0);
+			playerEntryFields[i]->setPosition(playerEntryFields[i]->getPosition() + Vector2f(difference, 0));
 			if (teamSizeList->getSelectedItemIndex() > 0)
 			{
-				playerEntryFields2[i]->move(difference, 0);
+				playerEntryFields2[i]->setPosition(playerEntryFields2[i]->getPosition() + Vector2f(difference, 0));
 			}
 			if (teamSizeList->getSelectedItemIndex() == 2)
 			{
-				playerEntryFields3[i]->move(difference, 0);
+				playerEntryFields3[i]->setPosition(playerEntryFields3[i]->getPosition() + Vector2f(difference, 0));
 			}
 		}
 	}
@@ -295,7 +295,7 @@ void gameSetupPanel::addPlayerEntryField(int index)
 	//Set up the new Player Entry Field object.
 	playerEntryFields.push_back(tgui::ComboBox::create());
 	gui->add(playerEntryFields[index]);
-	playerEntryFields[index]->setFont(*font_dejavu);
+	playerEntryFields[index]->getRenderer()->setFont(*font_dejavu);
 	//playerEntryFields[index]->setReadOnly(false);
 	//playerEntryFields[index]->setMaximumCharacters(14);
 	playerEntryFields[index]->setTextSize(20);
@@ -308,7 +308,7 @@ void gameSetupPanel::addPlayerEntryField(int index)
 	playerEntryFields[index]->setSize(playerNumbers[0].getGlobalBounds().width * 12, playerNumbers[index].getGlobalBounds().height);
 	//Position the TextBox to the immediate right of its corresponding number.
 	playerEntryFields[index]->setPosition(playerNumbers[0].getPosition().x + playerNumbers[0].getGlobalBounds().width + 30,
-		playerNumbers[index].getPosition().y + playerEntryFields[index]->getRenderer()->getBorders().top + 6);
+		playerNumbers[index].getPosition().y + playerEntryFields[index]->getRenderer()->getBorders().getTop() + 6);
 
 	//Add all of the Player names to the Player Entry Field.
 	res = stmt->executeQuery("SELECT name FROM players ORDER BY id ASC");
@@ -528,7 +528,7 @@ void gameSetupPanel::getUserInput(sf::Event event)
 		for (int i = 0; i < (int)playerEntryFields.size(); i++)
 		{
 			//If a Field was clicked on, make its Border yellow.
-			if (playerEntryFields[i]->mouseOnWidget(mousePos.x, mousePos.y))
+			if (playerEntryFields[i]->mouseOnWidget(mousePos))
 			{
 				playerEntryFields[i]->getRenderer()->setBorderColor(sf::Color::Yellow);
 			}
@@ -541,7 +541,7 @@ void gameSetupPanel::getUserInput(sf::Event event)
 			if (teamSizeList->getSelectedItemIndex() > 0)
 			{
 				//If a Field was clicked on, make its Border yellow.
-				if (playerEntryFields2[i]->mouseOnWidget(mousePos.x, mousePos.y))
+				if (playerEntryFields2[i]->mouseOnWidget(mousePos))
 				{
 					playerEntryFields2[i]->getRenderer()->setBorderColor(sf::Color::Yellow);
 				}
@@ -554,7 +554,7 @@ void gameSetupPanel::getUserInput(sf::Event event)
 				if (teamSizeList->getSelectedItemIndex() == 2)
 				{
 					//If a Field was clicked on, make its Border yellow.
-					if (playerEntryFields3[i]->mouseOnWidget(mousePos.x, mousePos.y))
+					if (playerEntryFields3[i]->mouseOnWidget(mousePos))
 					{
 						playerEntryFields3[i]->getRenderer()->setBorderColor(sf::Color::Yellow);
 					}
@@ -600,13 +600,13 @@ void gameSetupPanel::getUserInput(sf::Event event)
 					//If there is only one Player Entry Column, jump to the Field below this one.
 					if (teamSizeList->getSelectedItemIndex() == 0)
 					{
-						playerEntryFields[(i + 1) % playerEntryFields.size()]->focus();
+						playerEntryFields[(i + 1) % playerEntryFields.size()]->setFocused(true);
 						playerEntryFields[(i + 1) % playerEntryFields.size()]->getRenderer()->setBorderColor(sf::Color::Yellow);
 					}
 					//Otherwise, jump one to the right.
 					else if (teamSizeList->getSelectedItemIndex() > 0)
 					{
-						playerEntryFields2[i]->focus();
+						playerEntryFields2[i]->setFocused(true);
 						playerEntryFields2[i]->getRenderer()->setBorderColor(sf::Color::Yellow);
 					}
 					focusChanged = true;
@@ -619,13 +619,13 @@ void gameSetupPanel::getUserInput(sf::Event event)
 						//If there are only two Player Entry Columns, jump to the 1st Column and one Row down.
 						if (teamSizeList->getSelectedItemIndex() == 1)
 						{
-							playerEntryFields[(i + 1) % playerEntryFields.size()]->focus();
+							playerEntryFields[(i + 1) % playerEntryFields.size()]->setFocused(true);
 							playerEntryFields[(i + 1) % playerEntryFields.size()]->getRenderer()->setBorderColor(sf::Color::Yellow);
 						}
 						//Otherwise, jump one to the right.
 						else if (teamSizeList->getSelectedItemIndex() == 2)
 						{
-							playerEntryFields3[i]->focus();
+							playerEntryFields3[i]->setFocused(true);
 							playerEntryFields3[i]->getRenderer()->setBorderColor(sf::Color::Yellow);
 						}
 						focusChanged = true;
@@ -637,7 +637,7 @@ void gameSetupPanel::getUserInput(sf::Event event)
 					{
 						//Jump to the next Player Entry Field in the 1st Column.
 						playerEntryFields3[i]->getRenderer()->setBorderColor(sf::Color(64, 64, 64, 255));
-						playerEntryFields[(i + 1) % playerEntryFields.size()]->focus();
+						playerEntryFields[(i + 1) % playerEntryFields.size()]->setFocused(true);
 						playerEntryFields[(i + 1) % playerEntryFields.size()]->getRenderer()->setBorderColor(sf::Color::Yellow);
 						focusChanged = true;
 					}
@@ -723,27 +723,27 @@ void gameSetupPanel::slideInCoroutine(sf::Sprite& tab)
 		tab.move(distance, 0);
 		background.move(distance, 0);
 		header.move(distance, 0);
-		addPlayerTextbox->move(distance, 0);
-		addPlayerButton->move(distance, 0);
+		addPlayerTextbox->setPosition(addPlayerTextbox->getPosition() + Vector2f(distance, 0));
+		addPlayerButton->setPosition(addPlayerButton->getPosition() + Vector2f(distance, 0));
 		playerListHeader.move(distance, 0);
 		gameTypeHeader.move(distance, 0);
 		gameSetupButtonAdd.move(distance, 0);
-		gameTypeList->move(distance, 0);
+		gameTypeList->setPosition(gameTypeList->getPosition() + Vector2f(distance, 0));
 		teamSizeHeader.move(distance, 0);
-		teamSizeList->move(distance, 0);
-		createGameButton->move(distance, 0);
+		teamSizeList->setPosition(teamSizeList->getPosition() + Vector2f(distance, 0));
+		createGameButton->setPosition(createGameButton->getPosition() + Vector2f(distance, 0));
 		for (int i = 0; i < (int)playerNumbers.size(); i++)
 		{
 			playerNumbers[i].move(distance, 0);
 			gameSetupButtonsRemove[i].move(distance, 0);
-			playerEntryFields[i]->move(distance, 0);
+			playerEntryFields[i]->setPosition(playerEntryFields[i]->getPosition() + Vector2f(distance, 0));
 			if (teamSizeList->getSelectedItemIndex() > 0)
 			{
-				playerEntryFields2[i]->move(distance, 0);
+				playerEntryFields2[i]->setPosition(playerEntryFields2[i]->getPosition() + Vector2f(distance, 0));
 			}
 			if (teamSizeList->getSelectedItemIndex() == 2)
 			{
-				playerEntryFields3[i]->move(distance, 0);
+				playerEntryFields3[i]->setPosition(playerEntryFields3[i]->getPosition() + Vector2f(distance, 0));
 			}
 		}
 		//Yield the thread for one frame, so the movement is actually visible.

@@ -93,13 +93,14 @@ gamePanel::gamePanel(std::vector<std::string> names, std::vector<int> ids, int g
 		//Set up the Name Text (except size and position).
 		playerList[playerList.size() - 1].displayName = tgui::TextBox::create();
 		gui->add(playerList[playerList.size() - 1].displayName);
-		playerList[playerList.size() - 1].displayName->setFont(*font_mtg);
+		playerList[playerList.size() - 1].displayName->getRenderer()->setFont(*font_mtg);
 		playerList[playerList.size() - 1].displayName->setReadOnly(false);
 		playerList[playerList.size() - 1].displayName->getRenderer()->setBackgroundColor(sf::Color::Transparent);
 		playerList[playerList.size() - 1].displayName->getRenderer()->setBorderColor(sf::Color::Transparent);
 		playerList[playerList.size() - 1].displayName->getRenderer()->setTextColor(sf::Color::Black);
 		playerList[playerList.size() - 1].name = names[i];
 		playerList[playerList.size() - 1].displayName->setText(playerList[playerList.size() - 1].name);
+		playerList[playerList.size() - 1].displayName->setVerticalScrollbarPolicy(tgui::Scrollbar::Policy::Never);
 		//Set up the Player's ID number.
 		playerList[playerList.size() - 1].id = ids[i];
 		//Initialize the Avatar.
@@ -109,13 +110,14 @@ gamePanel::gamePanel(std::vector<std::string> names, std::vector<int> ids, int g
 		{
 			playerList[playerList.size() - 1].partnerDisplayNameOne = tgui::TextBox::create();
 			gui->add(playerList[playerList.size() - 1].partnerDisplayNameOne);
-			playerList[playerList.size() - 1].partnerDisplayNameOne->setFont(*font_mtg);
+			playerList[playerList.size() - 1].partnerDisplayNameOne->getRenderer()->setFont(*font_mtg);
 			playerList[playerList.size() - 1].partnerDisplayNameOne->setReadOnly(false);
 			playerList[playerList.size() - 1].partnerDisplayNameOne->getRenderer()->setBackgroundColor(sf::Color::Transparent);
 			playerList[playerList.size() - 1].partnerDisplayNameOne->getRenderer()->setBorderColor(sf::Color::Transparent);
 			playerList[playerList.size() - 1].partnerDisplayNameOne->getRenderer()->setTextColor(sf::Color::Black);
 			playerList[playerList.size() - 1].partnerNameOne = names[i + 1];
 			playerList[playerList.size() - 1].partnerDisplayNameOne->setText(playerList[playerList.size() - 1].partnerNameOne);
+			playerList[playerList.size() - 1].partnerDisplayNameOne->setVerticalScrollbarPolicy(tgui::Scrollbar::Policy::Never);
 			playerList[playerList.size() - 1].partnerAvatarOne = sf::Sprite(*avatarTextures[ids[i + 1]]);
 			i++;
 		}
@@ -124,13 +126,14 @@ gamePanel::gamePanel(std::vector<std::string> names, std::vector<int> ids, int g
 		{
 			playerList[playerList.size() - 1].partnerDisplayNameTwo = tgui::TextBox::create();
 			gui->add(playerList[playerList.size() - 1].partnerDisplayNameTwo);
-			playerList[playerList.size() - 1].partnerDisplayNameTwo->setFont(*font_mtg);
+			playerList[playerList.size() - 1].partnerDisplayNameTwo->getRenderer()->setFont(*font_mtg);
 			playerList[playerList.size() - 1].partnerDisplayNameTwo->setReadOnly(false);
 			playerList[playerList.size() - 1].partnerDisplayNameTwo->getRenderer()->setBackgroundColor(sf::Color::Transparent);
 			playerList[playerList.size() - 1].partnerDisplayNameTwo->getRenderer()->setBorderColor(sf::Color::Transparent);
 			playerList[playerList.size() - 1].partnerDisplayNameTwo->getRenderer()->setTextColor(sf::Color::Black);
 			playerList[playerList.size() - 1].partnerNameTwo = names[i + 1];
 			playerList[playerList.size() - 1].partnerDisplayNameTwo->setText(playerList[playerList.size() - 1].partnerNameTwo);
+			playerList[playerList.size() - 1].partnerDisplayNameTwo->setVerticalScrollbarPolicy(tgui::Scrollbar::Policy::Never);
 			playerList[playerList.size() - 1].partnerAvatarTwo = sf::Sprite(*avatarTextures[ids[i + 1]]);
 			i++;
 		}
@@ -145,6 +148,7 @@ gamePanel::gamePanel(std::vector<std::string> names, std::vector<int> ids, int g
 	cmdrHoverText->getRenderer()->setBackgroundColor(sf::Color::Transparent);
 	cmdrHoverText->getRenderer()->setTextColor(sf::Color::Transparent);
 	cmdrHoverText->getRenderer()->setCaretColor(sf::Color::Transparent);
+	cmdrHoverText->setVerticalScrollbarPolicy(tgui::Scrollbar::Policy::Never);
 	cmdrHoverText->setReadOnly(false);
 }
 
@@ -217,7 +221,7 @@ gamePanel::gamePanel(int gameID, std::string gameName)
 		playerName->next();
 		playerList[i].displayName = tgui::TextBox::create();
 		gui->add(playerList[i].displayName);
-		playerList[i].displayName->setFont(*font_mtg);
+		playerList[i].displayName->getRenderer()->setFont(*font_mtg);
 		playerList[i].displayName->setReadOnly(true);
 		playerList[i].displayName->getRenderer()->setBackgroundColor(sf::Color(
 			sf::Uint8(strtol(playerName->getString("background_color").substr(0, 2).c_str(), NULL, 16)),
@@ -230,6 +234,7 @@ gamePanel::gamePanel(int gameID, std::string gameName)
 			sf::Uint8(strtol(playerName->getString("text_color").substr(4, 2).c_str(), NULL, 16))));
 		playerList[i].name = playerName->getString("name");
 		playerList[i].displayName->setText(playerList[i].name);
+		playerList[i].displayName->setVerticalScrollbarPolicy(tgui::Scrollbar::Policy::Never);
 		//Initialize the Player's Avatar Sprite.
 		playerList[i].avatar = sf::Sprite(*avatarTextures[res->getInt("player_id")]);
 		//If this team has a unique "partner1_id", set up the 2nd Player's name.
@@ -239,7 +244,7 @@ gamePanel::gamePanel(int gameID, std::string gameName)
 			playerName->next();
 			playerList[i].partnerDisplayNameOne = tgui::TextBox::create();
 			gui->add(playerList[i].partnerDisplayNameOne);
-			playerList[i].partnerDisplayNameOne->setFont(*font_mtg);
+			playerList[i].partnerDisplayNameOne->getRenderer()->setFont(*font_mtg);
 			playerList[i].partnerDisplayNameOne->setReadOnly(true);
 			playerList[i].partnerDisplayNameOne->getRenderer()->setBackgroundColor(sf::Color(
 				sf::Uint8(strtol(playerName->getString("background_color").substr(0, 2).c_str(), NULL, 16)),
@@ -252,11 +257,12 @@ gamePanel::gamePanel(int gameID, std::string gameName)
 				sf::Uint8(strtol(playerName->getString("text_color").substr(4, 2).c_str(), NULL, 16))));
 			playerList[i].partnerNameOne = playerName->getString("name");
 			playerList[i].partnerDisplayNameOne->setText(playerList[i].partnerNameOne);
+			playerList[i].partnerDisplayNameOne->setVerticalScrollbarPolicy(tgui::Scrollbar::Policy::Never);
 			playerList[i].partnerAvatarOne = sf::Sprite(*avatarTextures[res->getInt("partner1_id")]);
 			//Also set up the Team Name.
 			playerList[i].teamDisplayName = tgui::TextBox::create();
 			gui->add(playerList[i].teamDisplayName);
-			playerList[i].teamDisplayName->setFont(*font_mtg);
+			playerList[i].teamDisplayName->getRenderer()->setFont(*font_mtg);
 			playerList[i].teamDisplayName->setReadOnly(true);
 			playerList[i].teamDisplayName->getRenderer()->setBackgroundColor(sf::Color::Transparent);
 			playerList[i].teamDisplayName->getRenderer()->setBorderColor(sf::Color::Transparent);
@@ -271,7 +277,7 @@ gamePanel::gamePanel(int gameID, std::string gameName)
 			playerName->next();
 			playerList[i].partnerDisplayNameTwo = tgui::TextBox::create();
 			gui->add(playerList[i].partnerDisplayNameTwo);
-			playerList[i].partnerDisplayNameTwo->setFont(*font_mtg);
+			playerList[i].partnerDisplayNameTwo->getRenderer()->setFont(*font_mtg);
 			playerList[i].partnerDisplayNameTwo->setReadOnly(true);
 			playerList[i].partnerDisplayNameTwo->getRenderer()->setBackgroundColor(sf::Color(
 				sf::Uint8(strtol(playerName->getString("background_color").substr(0, 2).c_str(), NULL, 16)),
@@ -284,6 +290,7 @@ gamePanel::gamePanel(int gameID, std::string gameName)
 				sf::Uint8(strtol(playerName->getString("text_color").substr(4, 2).c_str(), NULL, 16))));
 			playerList[i].partnerNameTwo = playerName->getString("name");
 			playerList[i].partnerDisplayNameTwo->setText(playerList[i].partnerNameTwo);
+			playerList[i].partnerDisplayNameTwo->setVerticalScrollbarPolicy(tgui::Scrollbar::Policy::Never);
 			playerList[i].partnerAvatarTwo = sf::Sprite(*avatarTextures[res->getInt("partner2_id")]);
 		}
 		delete playerName;
@@ -295,6 +302,7 @@ gamePanel::gamePanel(int gameID, std::string gameName)
 	cmdrHoverText->getRenderer()->setBackgroundColor(sf::Color::Transparent);
 	cmdrHoverText->getRenderer()->setTextColor(sf::Color::Transparent);
 	cmdrHoverText->getRenderer()->setCaretColor(sf::Color::Transparent);
+	cmdrHoverText->setVerticalScrollbarPolicy(tgui::Scrollbar::Policy::Never);
 	cmdrHoverText->setReadOnly(false);
 }
 
@@ -569,7 +577,7 @@ void gamePanel::movePlayer(int player, float xDiff, float yDiff)
 	//Move the Poison Counter.
 	playerList[player].poisonCounter.move(xDiff, yDiff);
 	//Move the Display Name.
-	playerList[player].displayName->move(xDiff, yDiff);
+	playerList[player].displayName->setPosition(playerList[player].displayName->getPosition() + Vector2f(xDiff, yDiff));
 	//Move the Avatar.
 	playerList[player].avatar.move(xDiff, yDiff);
 	//Move the Local Game-exclusive objects.
@@ -610,19 +618,19 @@ void gamePanel::movePlayer(int player, float xDiff, float yDiff)
 	if (teamSizeID > 0)
 	{
 		//Move the 1st Partner's Display Name.
-		playerList[player].partnerDisplayNameOne->move(xDiff, yDiff);
+		playerList[player].partnerDisplayNameOne->setPosition(playerList[player].partnerDisplayNameOne->getPosition() + Vector2f(xDiff, yDiff));
 		//Move the 1st Partner's Avatar.
 		playerList[player].partnerAvatarOne.move(xDiff, yDiff);
 		//If this is a Remote Game, move the Team Display Name.
 		if (remoteGameID >= 0)
 		{
-			playerList[player].teamDisplayName->move(xDiff, yDiff);
+			playerList[player].teamDisplayName->setPosition(playerList[player].teamDisplayName->getPosition() + Vector2f(xDiff, yDiff));
 		}
 		//Move the 2nd Partner's objects.
 		if (teamSizeID == 2)
 		{
 			//Move the 2nd Partner's Display Name.
-			playerList[player].partnerDisplayNameTwo->move(xDiff, yDiff);
+			playerList[player].partnerDisplayNameTwo->setPosition(playerList[player].partnerDisplayNameTwo->getPosition() + Vector2f(xDiff, yDiff));
 			//Move the 2nd Partner's Avatar.
 			playerList[player].partnerAvatarTwo.move(xDiff, yDiff);
 		}
@@ -721,7 +729,7 @@ void gamePanel::resize(int width, int height)
 		playerList[i].buttonLifeMinusFive.setScale(playerList[i].buttonLifePlusOne.getScale());
 		playerList[i].buttonLifeMinusTen.setScale(playerList[i].buttonLifePlusOne.getScale());
 		//Resize each of the Poison Counters.
-		playerList[i].poisonCounter.setCharacterSize((int)(playerList[i].lifeCounter.getCharacterSize() / 2));
+		playerList[i].poisonCounter.setCharacterSize((unsigned int)(playerList[i].lifeCounter.getCharacterSize() - 24));
 		//Resize all of the Poison Buttons.
 		playerList[i].buttonPoisonMinusOne.scale(playerList[i].poisonCounter.getGlobalBounds().height / playerList[i].buttonPoisonMinusOne.getGlobalBounds().height,
 			playerList[i].poisonCounter.getGlobalBounds().height / playerList[i].buttonPoisonMinusOne.getGlobalBounds().height);
@@ -901,7 +909,7 @@ void gamePanel::getUserInput(sf::Event event)
 						{
 							//Pull all of the style values from the display name of the player.
 							cmdrHoverText->getRenderer()->setBorders(tgui::Borders(0));
-							cmdrHoverText->setFont(playerList[j].displayName->getFont());
+							cmdrHoverText->getRenderer()->setFont(playerList[j].displayName->getRenderer()->getFont());
 							cmdrHoverText->getRenderer()->setTextColor(playerList[j].displayName->getRenderer()->getProperty("TextColor").getColor());
 							cmdrHoverText->getRenderer()->setBackgroundColor(playerList[j].displayName->getRenderer()->getProperty("BackgroundColor").getColor());
 							cmdrHoverText->setText(playerList[j].displayName->getText());
@@ -1003,7 +1011,7 @@ void gamePanel::AddPlayer()
 	//Set up the Name Text (except size and position).
 	playerList[playerList.size() - 1].displayName = tgui::TextBox::create();
 	gui->add(playerList[playerList.size() - 1].displayName);
-	playerList[playerList.size() - 1].displayName->setFont(*font_mtg);
+	playerList[playerList.size() - 1].displayName->getRenderer()->setFont(*font_mtg);
 	playerList[playerList.size() - 1].displayName->setReadOnly(false);
 	playerList[playerList.size() - 1].displayName->getRenderer()->setBackgroundColor(sf::Color::Transparent);
 	playerList[playerList.size() - 1].displayName->getRenderer()->setBorderColor(sf::Color::Transparent);
@@ -1015,7 +1023,7 @@ void gamePanel::AddPlayer()
 	{
 		playerList[playerList.size() - 1].partnerDisplayNameOne = tgui::TextBox::create();
 		gui->add(playerList[playerList.size() - 1].partnerDisplayNameOne);
-		playerList[playerList.size() - 1].partnerDisplayNameOne->setFont(*font_mtg);
+		playerList[playerList.size() - 1].partnerDisplayNameOne->getRenderer()->setFont(*font_mtg);
 		playerList[playerList.size() - 1].partnerDisplayNameOne->setReadOnly(false);
 		playerList[playerList.size() - 1].partnerDisplayNameOne->getRenderer()->setBackgroundColor(sf::Color::Transparent);
 		playerList[playerList.size() - 1].partnerDisplayNameOne->getRenderer()->setBorderColor(sf::Color::Transparent);
@@ -1029,7 +1037,7 @@ void gamePanel::AddPlayer()
 	{
 		playerList[playerList.size() - 1].partnerDisplayNameTwo = tgui::TextBox::create();
 		gui->add(playerList[playerList.size() - 1].partnerDisplayNameTwo);
-		playerList[playerList.size() - 1].partnerDisplayNameTwo->setFont(*font_mtg);
+		playerList[playerList.size() - 1].partnerDisplayNameTwo->getRenderer()->setFont(*font_mtg);
 		playerList[playerList.size() - 1].partnerDisplayNameTwo->setReadOnly(false);
 		playerList[playerList.size() - 1].partnerDisplayNameTwo->getRenderer()->setBackgroundColor(sf::Color::Transparent);
 		playerList[playerList.size() - 1].partnerDisplayNameTwo->getRenderer()->setBorderColor(sf::Color::Transparent);
@@ -1083,7 +1091,7 @@ void gamePanel::AddPlayer(std::string name, int life)
 	//Set up the Name Text (except size and position).
 	playerList[playerList.size() - 1].displayName = tgui::TextBox::create();
 	gui->add(playerList[playerList.size() - 1].displayName);
-	playerList[playerList.size() - 1].displayName->setFont(*font_mtg);
+	playerList[playerList.size() - 1].displayName->getRenderer()->setFont(*font_mtg);
 	playerList[playerList.size() - 1].displayName->setReadOnly(false);
 	playerList[playerList.size() - 1].displayName->getRenderer()->setBackgroundColor(sf::Color::Transparent);
 	playerList[playerList.size() - 1].displayName->getRenderer()->setBorderColor(sf::Color::Transparent);
@@ -1508,14 +1516,14 @@ void gamePanel::disableGUI()
 {
 	for (int i = 0; i < (int)playerList.size(); i++)
 	{
-		playerList[i].displayName->hide();
+		playerList[i].displayName->setVisible(false);
 		if (teamSizeID > 0)
 		{
-			playerList[i].partnerDisplayNameOne->hide();
+			playerList[i].partnerDisplayNameOne->setVisible(false);
 		}
 		if (teamSizeID == 2)
 		{
-			playerList[i].partnerDisplayNameTwo->hide();
+			playerList[i].partnerDisplayNameTwo->setVisible(false);
 		}
 	}
 }
@@ -1525,14 +1533,14 @@ void gamePanel::enableGUI()
 {
 	for (int i = 0; i < (int)playerList.size(); i++)
 	{
-		playerList[i].displayName->show();
+		playerList[i].displayName->setVisible(true);
 		if (teamSizeID > 0)
 		{
-			playerList[i].partnerDisplayNameOne->show();
+			playerList[i].partnerDisplayNameOne->setVisible(true);
 		}
 		if (teamSizeID == 2)
 		{
-			playerList[i].partnerDisplayNameTwo->show();
+			playerList[i].partnerDisplayNameTwo->setVisible(true);
 		}
 	}
 }

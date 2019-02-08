@@ -44,7 +44,7 @@ gamePanelEmperor::gamePanelEmperor(std::vector<std::string> names, std::vector<i
 		//Set up the Name Text (except size and position).
 		playerList[playerList.size() - 1].displayName = tgui::TextBox::create();
 		gui->add(playerList[playerList.size() - 1].displayName);
-		playerList[playerList.size() - 1].displayName->setFont(*font_mtg);
+		playerList[playerList.size() - 1].displayName->getRenderer()->setFont(*font_mtg);
 		playerList[playerList.size() - 1].displayName->setReadOnly(false);
 		playerList[playerList.size() - 1].displayName->getRenderer()->setBackgroundColor(sf::Color::Transparent);
 		playerList[playerList.size() - 1].displayName->getRenderer()->setBorderColor(sf::Color::Transparent);
@@ -143,7 +143,7 @@ void gamePanelEmperor::AddPlayer(int i, int id, int life, int poison)
 	playerName->next();
 	playerList[i].displayName = tgui::TextBox::create();
 	gui->add(playerList[i].displayName);
-	playerList[i].displayName->setFont(*font_mtg);
+	playerList[i].displayName->getRenderer()->setFont(*font_mtg);
 	playerList[i].displayName->setReadOnly(true);
 	playerList[i].displayName->getRenderer()->setBackgroundColor(sf::Color(
 		sf::Uint8(strtol(playerName->getString("background_color").substr(0, 2).c_str(), NULL, 16)),
@@ -156,6 +156,7 @@ void gamePanelEmperor::AddPlayer(int i, int id, int life, int poison)
 		sf::Uint8(strtol(playerName->getString("text_color").substr(4, 2).c_str(), NULL, 16))));
 	playerList[i].name = playerName->getString("name");
 	playerList[i].displayName->setText(playerList[i].name);
+	playerList[i].displayName->setVerticalScrollbarPolicy(tgui::Scrollbar::Policy::Never);
 	//Initialize the Player's Avatar Sprite.
 	playerList[i].avatar = sf::Sprite(*avatarTextures[id]);
 }
@@ -359,7 +360,7 @@ void gamePanelEmperor::resize(int width, int height)
 		playerList[i].buttonLifeMinusFive.setScale(playerList[i].buttonLifePlusOne.getScale());
 		playerList[i].buttonLifeMinusTen.setScale(playerList[i].buttonLifePlusOne.getScale());
 		//Resize each of the Poison Counters.
-		playerList[i].poisonCounter.setCharacterSize(playerList[i].lifeCounter.getCharacterSize() / 2);
+		playerList[i].poisonCounter.setCharacterSize((unsigned int)(playerList[i].lifeCounter.getCharacterSize() - 24));
 		//Resize all of the Poison Buttons.
 		playerList[i].buttonPoisonMinusOne.scale(playerList[i].poisonCounter.getGlobalBounds().height / playerList[i].buttonPoisonMinusOne.getGlobalBounds().height,
 			playerList[i].poisonCounter.getGlobalBounds().height / playerList[i].buttonPoisonMinusOne.getGlobalBounds().height);
@@ -521,7 +522,7 @@ void gamePanelEmperor::disableGUI()
 {
 	for (int i = 0; i < (int)playerList.size(); i++)
 	{
-		playerList[i].displayName->disable();
+		playerList[i].displayName->setEnabled(false);
 	}
 }
 
@@ -530,6 +531,6 @@ void gamePanelEmperor::enableGUI()
 {
 	for (int i = 0; i < (int)playerList.size(); i++)
 	{
-		playerList[i].displayName->enable();
+		playerList[i].displayName->setEnabled(true);
 	}
 }

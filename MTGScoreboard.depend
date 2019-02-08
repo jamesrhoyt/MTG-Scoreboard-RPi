@@ -126,34 +126,54 @@
 	<SFML/Graphics/VertexArray.hpp>
 	<SFML/Graphics/View.hpp>
 
-1533458324 /usr/local/include/TGUI/Gui.hpp
-	<queue>
+1548611617 /usr/local/include/TGUI/Gui.hpp
 	<TGUI/Container.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<queue>
 
-1533458324 /usr/local/include/TGUI/Widget.hpp
+1548611617 /usr/local/include/TGUI/Widget.hpp
 	<TGUI/Global.hpp>
 	<TGUI/Signal.hpp>
-	<TGUI/Transformable.hpp>
-	<TGUI/Texture.hpp>
-	<TGUI/Color.hpp>
-	<TGUI/Font.hpp>
+	<TGUI/Sprite.hpp>
+	<TGUI/Layout.hpp>
+	<TGUI/Vector2f.hpp>
+	<TGUI/Loading/Theme.hpp>
+	<TGUI/Loading/DataIO.hpp>
+	<TGUI/Loading/Serializer.hpp>
 	<TGUI/Loading/Deserializer.hpp>
+	<TGUI/Renderers/WidgetRenderer.hpp>
+	<TGUI/Aurora/SmartPtr/CopiedPtr.hpp>
+	<TGUI/Aurora/Tools/Downcast.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/Window/Event.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<unordered_set>
+	<any>
+	<TGUI/Any.hpp>
 
-1533458324 /usr/local/include/TGUI/Widgets/ClickableWidget.hpp
+1548611617 /usr/local/include/TGUI/Widgets/ClickableWidget.hpp
 	<TGUI/Widget.hpp>
 
-1533458324 /usr/local/include/TGUI/Widgets/Label.hpp
+1548611617 /usr/local/include/TGUI/Widgets/Label.hpp
 	<TGUI/Widgets/ClickableWidget.hpp>
+	<TGUI/Renderers/LabelRenderer.hpp>
+	<TGUI/CopiedSharedPtr.hpp>
+	<TGUI/Widgets/Scrollbar.hpp>
+	<TGUI/Text.hpp>
 
-1533458324 /usr/local/include/TGUI/Widgets/Scrollbar.hpp
+1548611617 /usr/local/include/TGUI/Widgets/Scrollbar.hpp
 	<TGUI/Widget.hpp>
+	<TGUI/Renderers/ScrollbarRenderer.hpp>
 
-1533458324 /usr/local/include/TGUI/Widgets/TextBox.hpp
-	<TGUI/Widget.hpp>
+1548611617 /usr/local/include/TGUI/Widgets/TextBox.hpp
+	<TGUI/CopiedSharedPtr.hpp>
+	<TGUI/Widgets/Scrollbar.hpp>
+	<TGUI/Renderers/TextBoxRenderer.hpp>
+	<TGUI/Text.hpp>
 
 1541791881 /usr/include/boost/thread
 
-1548266680 source:/home/pi/projects/MTGScoreboard/gameSetupPanel.cpp
+1549567955 source:/home/pi/projects/MTGScoreboard/gameSetupPanel.cpp
 	"gameSetupPanel.h"
 
 1547670735 /home/pi/projects/MTGScoreboard/gameSetupPanel.h
@@ -174,28 +194,30 @@
 	<thread>
 	"constants.h"
 
-1533458324 /usr/local/include/TGUI/Signal.hpp
+1548611617 /usr/local/include/TGUI/Signal.hpp
 	<TGUI/Global.hpp>
-	<TGUI/Callback.hpp>
-	<map>
-	<deque>
-	<memory>
-	<cassert>
+	<TGUI/Vector2f.hpp>
+	<TGUI/Animation.hpp>
+	<SFML/System/String.hpp>
 	<functional>
+	<typeindex>
+	<memory>
+	<vector>
+	<deque>
+	<map>
 
-1533458324 /usr/local/include/TGUI/TGUI.hpp
+1548611617 /usr/local/include/TGUI/TGUI.hpp
 	<TGUI/Clipboard.hpp>
 	<TGUI/Animation.hpp>
 	<TGUI/Widget.hpp>
+	<TGUI/ToolTip.hpp>
 	<TGUI/Container.hpp>
-	<TGUI/HorizontalLayout.hpp>
-	<TGUI/VerticalLayout.hpp>
 	<TGUI/Gui.hpp>
 	<TGUI/Loading/Deserializer.hpp>
 	<TGUI/Loading/Serializer.hpp>
 	<TGUI/Loading/Theme.hpp>
-	<TGUI/Loading/WidgetLoader.hpp>
-	<TGUI/Loading/WidgetSaver.hpp>
+	<TGUI/Loading/WidgetFactory.hpp>
+	<TGUI/Widgets/BitmapButton.hpp>
 	<TGUI/Widgets/Button.hpp>
 	<TGUI/Widgets/Canvas.hpp>
 	<TGUI/Widgets/ChatBox.hpp>
@@ -204,34 +226,50 @@
 	<TGUI/Widgets/ClickableWidget.hpp>
 	<TGUI/Widgets/ComboBox.hpp>
 	<TGUI/Widgets/EditBox.hpp>
+	<TGUI/Widgets/Group.hpp>
 	<TGUI/Widgets/Grid.hpp>
+	<TGUI/Widgets/HorizontalLayout.hpp>
+	<TGUI/Widgets/HorizontalWrap.hpp>
 	<TGUI/Widgets/Knob.hpp>
 	<TGUI/Widgets/Label.hpp>
 	<TGUI/Widgets/ListBox.hpp>
+	<TGUI/Widgets/ListView.hpp>
 	<TGUI/Widgets/MenuBar.hpp>
 	<TGUI/Widgets/MessageBox.hpp>
 	<TGUI/Widgets/Panel.hpp>
 	<TGUI/Widgets/Picture.hpp>
 	<TGUI/Widgets/ProgressBar.hpp>
 	<TGUI/Widgets/RadioButton.hpp>
+	<TGUI/Widgets/RadioButtonGroup.hpp>
+	<TGUI/Widgets/RangeSlider.hpp>
+	<TGUI/Widgets/ScrollablePanel.hpp>
 	<TGUI/Widgets/Scrollbar.hpp>
 	<TGUI/Widgets/Slider.hpp>
 	<TGUI/Widgets/SpinButton.hpp>
-	<TGUI/Widgets/Tab.hpp>
+	<TGUI/Widgets/Tabs.hpp>
 	<TGUI/Widgets/TextBox.hpp>
-	<TGUI/Widgets/ToolTip.hpp>
+	<TGUI/Widgets/TreeView.hpp>
+	<TGUI/Widgets/VerticalLayout.hpp>
+	<TGUI/SignalImpl.hpp>
+	<SFML/Graphics.hpp>
+	<SFML/Main.hpp>
 
-1533458324 /usr/local/include/TGUI/Widgets/Button.hpp
-	<TGUI/Widgets/Label.hpp>
+1548611617 /usr/local/include/TGUI/Widgets/Button.hpp
+	<TGUI/Renderers/ButtonRenderer.hpp>
+	<TGUI/Widgets/ClickableWidget.hpp>
+	<TGUI/Text.hpp>
 
-1533458324 /usr/local/include/TGUI/Widgets/ComboBox.hpp
-	<TGUI/Widgets/Label.hpp>
+1548611617 /usr/local/include/TGUI/Widgets/ComboBox.hpp
 	<TGUI/Widgets/ListBox.hpp>
+	<TGUI/Renderers/ComboBoxRenderer.hpp>
 
-1533458324 /usr/local/include/TGUI/Widgets/ListBox.hpp
+1548611617 /usr/local/include/TGUI/Widgets/ListBox.hpp
+	<TGUI/CopiedSharedPtr.hpp>
 	<TGUI/Widgets/Scrollbar.hpp>
+	<TGUI/Renderers/ListBoxRenderer.hpp>
+	<TGUI/Text.hpp>
 
-1549391858 source:/home/pi/projects/MTGScoreboard/gamePanel.cpp
+1549658595 source:/home/pi/projects/MTGScoreboard/gamePanel.cpp
 	"gamePanel.h"
 
 1548282761 /home/pi/projects/MTGScoreboard/gamePanel.h
@@ -263,13 +301,13 @@
 	"gamePanelEmperor.h"
 	"gameSetupPanel.h"
 
-1549394420 source:/home/pi/projects/MTGScoreboard/panelManager.cpp
+1549651332 source:/home/pi/projects/MTGScoreboard/panelManager.cpp
 	"panelManager.h"
 
 1548698429 source:/home/pi/projects/MTGScoreboard/startupScreen.cpp
 	"startupScreen.h"
 
-1548281079 source:/home/pi/projects/MTGScoreboard/gamePanelEmperor.cpp
+1549658816 source:/home/pi/projects/MTGScoreboard/gamePanelEmperor.cpp
 	"gamePanelEmperor.h"
 
 1548268834 /home/pi/projects/MTGScoreboard/gamePanelEmperor.h
