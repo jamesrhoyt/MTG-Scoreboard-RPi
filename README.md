@@ -13,7 +13,7 @@ sudo apt-get install libsfml-dev
 
 Install cmake: ```sudo apt-get install cmake```
 
-Download and unzip TGUI 0.7.8: https://github.com/texus/TGUI/archive/v0.8.3.zip
+Download and unzip TGUI 0.8.3: https://github.com/texus/TGUI/archive/v0.8.3.zip
 
 Build TGUI with cmake:
 
