@@ -103,3 +103,13 @@ COMMIT;
 ALTER TABLE `commander_dmg` ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `id` (`id`);
 COMMIT;
 ```
+
+Set up the Server's Web Pages: 
+* Make the "/var/www/html" folder accessible:
+```
+sudo chown -R pi:www-data /var/www
+sudo chmod u+rxw,g+rx-w,o-rwx /var/www
+sudo chmod g+s /var/www
+```
+* Copy the 5 files in the "Server Files" directory to "/var/www/html" on the Raspberry Pi
+* Go to "localhost/mtg_lobby.php"
