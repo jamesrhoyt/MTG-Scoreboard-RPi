@@ -5,13 +5,22 @@ MTG Scoreboard (RPi)
 
 #### SFML
 
-```
-sudo apt-get install libsfml-dev
-```
+Download and unzip SFML 2.5.1: https://www.sfml-dev.org/files/SFML-2.5.1-sources.zip
 
-#### TGUI
+Install dependencies: ```sudo apt-get install libflac-dev libogg-dev libvorbis-dev libopenal-dev libjpeg8-dev libfreetype6-dev libudev-dev libraspberrypi-dev libx11-dev libxrandr-dev libglu1-mesa-dev freeglut3-dev```
 
 Install cmake: ```sudo apt-get install cmake```
+
+Build SFML with cmake:
+
+```
+cd /home/pi/Downloads/SFML-2.5.1
+cmake .
+make
+sudo make install
+``` 
+
+#### TGUI
 
 Download and unzip TGUI 0.8.3: https://github.com/texus/TGUI/archive/v0.8.3.zip
 
@@ -35,6 +44,31 @@ sudo apt-get install libboost1.62-all
 ```
 sudo apt-get install libmysqlcppconn-dev
 ```
+
+### Activating the Pi's OpenGL Drivers
+
+Install the graphics libraries: ```sudo apt-get install mesa-utils```
+
+Activate the drivers:
+
+* Open the config menu: ```sudo raspi-config```
+* Select 7: Advanced Options
+* Select A7: GL Driver
+* Select G2: GL (Fake KMS)
+
+Increase GPU Memory Usage:
+
+* Open the config menu: ```sudo raspi-config```
+* Select 7: Advanced Options
+* Select A3: Memory Split
+* Enter "256"
+* Select "OK", then "Finish", then reboot
+
+### Install Code::Blocks
+
+```
+sudo apt-get install codeblocks
+``` 
 
 ### Setting Up the MySQL Server
 
@@ -79,7 +113,7 @@ Add simulinks:
 cd /etc/apache2/conf-available
 sudo ln -s ../../phpmyadmin/apache.conf phpmyadmin.conf
 cd /etc/apache2/conf-enabled
-sudo ln -s ../conf-available/phpmyadimn.conf phpmyadmin.conf
+sudo ln -s ../conf-available/phpmyadmin.conf phpmyadmin.conf
 sudo service apache2 restart
 ```
 
@@ -88,8 +122,8 @@ Set Up the "mtg" Database and Required Tables:
 ```sudo mysql -u root -p```
 Enter password: "mtgscoreboard"
 ```
-CREATE DATABASE mtg /g
-USE mtg
+CREATE DATABASE mtg;
+USE mtg;
 CREATE TABLE `players` (`id` int(11) NOT NULL, `name` text NOT NULL, `wins` int(11) NOT NULL DEFAULT '0', `ties` int(11) NOT NULL DEFAULT '0', `losses` int(11) NOT NULL DEFAULT '0', `text_color` varchar(6) NOT NULL, `background_color` varchar(6) NOT NULL, `avatar` text) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 CREATE TABLE `games` (`id` int(11) NOT NULL, `name` text NOT NULL, `active` tinyint(1) NOT NULL, `team_size` int(11) NOT NULL, `game_type` int(11) NOT NULL, `start_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP, `turns` int(11)  NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 CREATE TABLE `teams` (`id` int(11) NOT NULL, `team_id` int(11) NOT NULL, `name` text NOT NULL, `game_id` int(11) NOT NULL, `life` int(11) NOT NULL, `player_id` int(11) NOT NULL, `partner1_id` int(11) NOT NULL, `partner1_life` int(11) NOT NULL, `partner1_poison` int(11) NOT NULL, `partner2_id` int(11) NOT NULL, `partner2_life` int(11) NOT NULL, `partner2_poison` int(11) NOT NULL, `emperor` tinyint(1) NOT NULL, `poison` int(11) NOT NULL, `isAlive` bit NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;
