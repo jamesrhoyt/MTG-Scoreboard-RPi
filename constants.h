@@ -30,7 +30,7 @@ using namespace sf;
 #pragma once
 
 //The file paths for the Art assets and the Player Avatars.
-const std::string resourcePath = "../MTGScoreboard/Resources/";
+const std::string resourcePath = "./Resources/";
 const std::string avatarPath = resourcePath;
 
 //The maximum number of players, per game.

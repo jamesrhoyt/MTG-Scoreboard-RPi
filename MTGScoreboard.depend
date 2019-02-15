@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1546893229 source:/home/pi/projects/MTGScoreboard/constants.cpp
+1550084715 source:/home/pi/projects/MTGScoreboard/constants.cpp
 	"constants.h"
 
-1547747701 /home/pi/projects/MTGScoreboard/constants.h
+1550195559 /home/pi/projects/MTGScoreboard/constants.h
 	<chrono>
 	<connection.h>
 	<driver.h>
@@ -23,7 +23,7 @@
 	<Widgets/TextBox.hpp>
 	<thread>
 
-1541791881 /usr/include/boost/chrono
+1550091571 /usr/include/boost/chrono
 
 1452624158 /usr/include/cppconn/connection.h
 	<map>
@@ -46,7 +46,7 @@
 	"build_config.h"
 	<iostream>
 
-1541791881 /usr/include/boost/algorithm
+1550091571 /usr/include/boost/algorithm
 
 1452624158 /usr/include/cppconn/variant.h
 	<string>
@@ -96,9 +96,9 @@
 
 1452624158 /usr/include/cppconn/datatype.h
 
-1541791881 /usr/include/boost/functional
+1550091571 /usr/include/boost/functional
 
-1525751320 /usr/local/include/SFML/Graphics.hpp
+1539632499 /usr/local/include/SFML/Graphics.hpp
 	<SFML/Window.hpp>
 	<SFML/Graphics/BlendMode.hpp>
 	<SFML/Graphics/CircleShape.hpp>
@@ -124,6 +124,7 @@
 	<SFML/Graphics/Transformable.hpp>
 	<SFML/Graphics/Vertex.hpp>
 	<SFML/Graphics/VertexArray.hpp>
+	<SFML/Graphics/VertexBuffer.hpp>
 	<SFML/Graphics/View.hpp>
 
 1548611617 /usr/local/include/TGUI/Gui.hpp
@@ -171,12 +172,12 @@
 	<TGUI/Renderers/TextBoxRenderer.hpp>
 	<TGUI/Text.hpp>
 
-1541791881 /usr/include/boost/thread
+1550091572 /usr/include/boost/thread
 
-1549567955 source:/home/pi/projects/MTGScoreboard/gameSetupPanel.cpp
+1550084715 source:/home/pi/projects/MTGScoreboard/gameSetupPanel.cpp
 	"gameSetupPanel.h"
 
-1547670735 /home/pi/projects/MTGScoreboard/gameSetupPanel.h
+1550084715 /home/pi/projects/MTGScoreboard/gameSetupPanel.h
 	<chrono>
 	<functional>
 	<Graphics.hpp>
@@ -269,10 +270,10 @@
 	<TGUI/Renderers/ListBoxRenderer.hpp>
 	<TGUI/Text.hpp>
 
-1549658595 source:/home/pi/projects/MTGScoreboard/gamePanel.cpp
+1550097512 source:/home/pi/projects/MTGScoreboard/gamePanel.cpp
 	"gamePanel.h"
 
-1548282761 /home/pi/projects/MTGScoreboard/gamePanel.h
+1550084715 /home/pi/projects/MTGScoreboard/gamePanel.h
 	<cmath>
 	<string>
 	<sstream>
@@ -282,17 +283,17 @@
 	<Gui.hpp>
 	"constants.h"
 
-1549395104 source:/home/pi/projects/MTGScoreboard/main.cpp
+1550195402 source:/home/pi/projects/MTGScoreboard/main.cpp
 	<cstdio>
 	<iostream>
 	"startupScreen.h"
 
-1547673206 /home/pi/projects/MTGScoreboard/startupScreen.h
+1550084715 /home/pi/projects/MTGScoreboard/startupScreen.h
 	<cmath>
 	<Graphics.hpp>
 	"panelManager.h"
 
-1548285088 /home/pi/projects/MTGScoreboard/panelManager.h
+1550084715 /home/pi/projects/MTGScoreboard/panelManager.h
 	<string>
 	<sstream>
 	<thread>
@@ -301,15 +302,104 @@
 	"gamePanelEmperor.h"
 	"gameSetupPanel.h"
 
-1549651332 source:/home/pi/projects/MTGScoreboard/panelManager.cpp
+1550084715 source:/home/pi/projects/MTGScoreboard/panelManager.cpp
 	"panelManager.h"
 
-1548698429 source:/home/pi/projects/MTGScoreboard/startupScreen.cpp
+1550084715 source:/home/pi/projects/MTGScoreboard/startupScreen.cpp
 	"startupScreen.h"
 
-1549658816 source:/home/pi/projects/MTGScoreboard/gamePanelEmperor.cpp
+1550084715 source:/home/pi/projects/MTGScoreboard/gamePanelEmperor.cpp
 	"gamePanelEmperor.h"
 
-1548268834 /home/pi/projects/MTGScoreboard/gamePanelEmperor.h
+1550084715 /home/pi/projects/MTGScoreboard/gamePanelEmperor.h
 	"gamePanel.h"
+
+1550084715 source:/home/pi/projects/MTGScoreboard/mtg-scoreboard-rpi/constants.cpp
+	"constants.h"
+
+1550084715 /home/pi/projects/MTGScoreboard/mtg-scoreboard-rpi/constants.h
+	<chrono>
+	<connection.h>
+	<driver.h>
+	<prepared_statement.h>
+	<resultset.h>
+	<statement.h>
+	<functional>
+	<iostream>
+	<mysql_connection.h>
+	<mysql_driver.h>
+	<mysql_error.h>
+	<Graphics.hpp>
+	<Gui.hpp>
+	<Widget.hpp>
+	<Widgets/ClickableWidget.hpp>
+	<Widgets/Label.hpp>
+	<Widgets/Scrollbar.hpp>
+	<Widgets/TextBox.hpp>
+	<thread>
+
+1550084715 source:/home/pi/projects/MTGScoreboard/mtg-scoreboard-rpi/gamePanel.cpp
+	"gamePanel.h"
+
+1550084715 /home/pi/projects/MTGScoreboard/mtg-scoreboard-rpi/gamePanel.h
+	<cmath>
+	<string>
+	<sstream>
+	<stdlib.h>
+	<vector>
+	<Graphics.hpp>
+	<Gui.hpp>
+	"constants.h"
+
+1550084715 source:/home/pi/projects/MTGScoreboard/mtg-scoreboard-rpi/gamePanelEmperor.cpp
+	"gamePanelEmperor.h"
+
+1550084715 /home/pi/projects/MTGScoreboard/mtg-scoreboard-rpi/gamePanelEmperor.h
+	"gamePanel.h"
+
+1550084715 source:/home/pi/projects/MTGScoreboard/mtg-scoreboard-rpi/gameSetupPanel.cpp
+	"gameSetupPanel.h"
+
+1550084715 /home/pi/projects/MTGScoreboard/mtg-scoreboard-rpi/gameSetupPanel.h
+	<chrono>
+	<functional>
+	<Graphics.hpp>
+	<Gui.hpp>
+	<Signal.hpp>
+	<TGUI.hpp>
+	<Widget.hpp>
+	<Widgets/Button.hpp>
+	<Widgets/ClickableWidget.hpp>
+	<Widgets/ComboBox.hpp>
+	<Widgets/Label.hpp>
+	<Widgets/ListBox.hpp>
+	<Widgets/Scrollbar.hpp>
+	<Widgets/TextBox.hpp>
+	<thread>
+	"constants.h"
+
+1550084715 source:/home/pi/projects/MTGScoreboard/mtg-scoreboard-rpi/main.cpp
+	<cstdio>
+	<iostream>
+	"startupScreen.h"
+
+1550084715 /home/pi/projects/MTGScoreboard/mtg-scoreboard-rpi/startupScreen.h
+	<cmath>
+	<Graphics.hpp>
+	"panelManager.h"
+
+1550084715 /home/pi/projects/MTGScoreboard/mtg-scoreboard-rpi/panelManager.h
+	<string>
+	<sstream>
+	<thread>
+	<vector>
+	"gamePanel.h"
+	"gamePanelEmperor.h"
+	"gameSetupPanel.h"
+
+1550084715 source:/home/pi/projects/MTGScoreboard/mtg-scoreboard-rpi/panelManager.cpp
+	"panelManager.h"
+
+1550084715 source:/home/pi/projects/MTGScoreboard/mtg-scoreboard-rpi/startupScreen.cpp
+	"startupScreen.h"
 
