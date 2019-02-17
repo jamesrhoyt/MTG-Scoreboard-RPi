@@ -23,34 +23,70 @@ int main()
 	gui = new tgui::Gui(*window);
 	//Create the Font objects.
 	font_mtg = new sf::Font();
-	font_mtg->loadFromFile(resourcePath + "MAGIC.TTF");
+	if(!font_mtg->loadFromFile(resourcePath + "MAGIC.TTF"))
+	{
+        font_mtg->loadFromFile(altResourcePath + "MAGIC.TTF");
+	}
 	font_dejavu = new sf::Font();
-	font_dejavu->loadFromFile(resourcePath + "DejaVuSans.ttf");
+	if(!font_dejavu->loadFromFile(resourcePath + "DejaVuSans.ttf"))
+	{
+        font_dejavu->loadFromFile(altResourcePath + "DejaVuSans.ttf");
+	}
 	//Create and load the Texture objects.
 	//Load the Player Button Textures.
 	buttonCommanderMinusOneTexture = new sf::Texture();
-	buttonCommanderMinusOneTexture->loadFromFile(resourcePath + "buttonCommanderMinusOne.png");
+	if(!buttonCommanderMinusOneTexture->loadFromFile(resourcePath + "buttonCommanderMinusOne.png"))
+	{
+        buttonCommanderMinusOneTexture->loadFromFile(altResourcePath + "buttonCommanderMinusOne.png");
+	}
 	buttonLifePlusOneTexture = new sf::Texture();
-	buttonLifePlusOneTexture->loadFromFile(resourcePath + "buttonLifePlusOne.png");
+	if(!buttonLifePlusOneTexture->loadFromFile(resourcePath + "buttonLifePlusOne.png"))
+	{
+        buttonLifePlusOneTexture->loadFromFile(altResourcePath + "buttonLifePlusOne.png");
+	}
 	buttonLifePlusFiveTexture = new sf::Texture();
-	buttonLifePlusFiveTexture->loadFromFile(resourcePath + "buttonLifePlusFive.png");
+	if(!buttonLifePlusFiveTexture->loadFromFile(resourcePath + "buttonLifePlusFive.png"))
+	{
+        buttonLifePlusFiveTexture->loadFromFile(altResourcePath + "buttonLifePlusFive.png");
+	}
 	buttonLifeMinusFiveTexture = new sf::Texture();
-	buttonLifeMinusFiveTexture->loadFromFile(resourcePath + "buttonLifeMinusFive.png");
+	if(!buttonLifeMinusFiveTexture->loadFromFile(resourcePath + "buttonLifeMinusFive.png"))
+	{
+        buttonLifeMinusFiveTexture->loadFromFile(altResourcePath + "buttonLifeMinusFive.png");
+	}
 	buttonLifeMinusTenTexture = new sf::Texture();
-	buttonLifeMinusTenTexture->loadFromFile(resourcePath + "buttonLifeMinusTen.png");
+	if(!buttonLifeMinusTenTexture->loadFromFile(resourcePath + "buttonLifeMinusTen.png"))
+	{
+        buttonLifeMinusTenTexture->loadFromFile(altResourcePath + "buttonLifeMinusTen.png");
+	}
 	buttonPoisonPlusOneTexture = new sf::Texture();
-	buttonPoisonPlusOneTexture->loadFromFile(resourcePath + "buttonPoisonPlusOne.png");
+	if(!buttonPoisonPlusOneTexture->loadFromFile(resourcePath + "buttonPoisonPlusOne.png"))
+	{
+        buttonPoisonPlusOneTexture->loadFromFile(altResourcePath + "buttonPoisonPlusOne.png");
+	}
 	buttonPoisonMinusOneTexture = new sf::Texture();
-	buttonPoisonMinusOneTexture->loadFromFile(resourcePath + "buttonPoisonMinusOne.png");
+	if(!buttonPoisonMinusOneTexture->loadFromFile(resourcePath + "buttonPoisonMinusOne.png"))
+	{
+        buttonPoisonMinusOneTexture->loadFromFile(altResourcePath + "buttonPoisonMinusOne.png");
+	}
 	//Load the Texture for the Button to collapse the Commander Counters.
 	buttonCommanderCloseTexture = new sf::Texture();
-	buttonCommanderCloseTexture->loadFromFile(resourcePath + "buttonCommanderClose.png");
+	if(!buttonCommanderCloseTexture->loadFromFile(resourcePath + "buttonCommanderClose.png"))
+	{
+        buttonCommanderCloseTexture->loadFromFile(altResourcePath + "buttonCommanderClose.png");
+	}
 	//Load the Texture for the Button to add Players to the game.
 	addPlayerPanelButtonTexture = new sf::Texture();
-	addPlayerPanelButtonTexture->loadFromFile(resourcePath + "gameSetupButtonAdd.png");
+	if(!addPlayerPanelButtonTexture->loadFromFile(resourcePath + "gameSetupButtonAdd.png"))
+	{
+        addPlayerPanelButtonTexture->loadFromFile(altResourcePath + "gameSetupButtonAdd.png");
+	}
 	//Load the Texture for the background.
 	panelTexture = new sf::Texture();
-	panelTexture->loadFromFile(resourcePath + "startupBackground.png");
+	if(!panelTexture->loadFromFile(resourcePath + "startupBackground.png"))
+	{
+        panelTexture->loadFromFile(altResourcePath + "startupBackground.png");
+	}
 	//Create the Avatar Texture Objects.
 	//Get the file path for each of the avatar images.
 	res = stmt->executeQuery("SELECT id, avatar FROM players ORDER BY id ASC");
@@ -61,7 +97,13 @@ int main()
 		//If a Player does not have an Avatar, give them a copy of the default one.
 		if (!avatarTextures[res->getInt("id")]->loadFromFile(avatarPath + res->getString("avatar")))
 		{
-			avatarTextures[res->getInt("id")]->loadFromFile(avatarPath + "player_images/default.jpg");
+            if (!avatarTextures[res->getInt("id")]->loadFromFile(altAvatarPath + res->getString("avatar")))
+            {
+                if(!avatarTextures[res->getInt("id")]->loadFromFile(avatarPath + "player_images/default.jpg"))
+                {
+                    avatarTextures[res->getInt("id")]->loadFromFile(altAvatarPath + "player_images/default.jpg");
+                }
+            }
 		}
 	}
 	//Create and run the startup screen.

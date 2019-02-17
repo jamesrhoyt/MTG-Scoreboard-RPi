@@ -12,7 +12,10 @@ int startupScreen::runStartup()
 	//Load the Background Texture, and set its Sprite.
 	if (!backgroundTexture.loadFromFile(resourcePath + "startupBackground.png"))
 	{
-		return 1;
+        if (!backgroundTexture.loadFromFile(altResourcePath + "startupBackground.png"))
+        {
+            return 1;
+        }
 	}
 	background = Sprite(backgroundTexture);
 	//Position and scale the background to fill the window.
@@ -22,7 +25,10 @@ int startupScreen::runStartup()
 	//Load the Title Logo Texture, and set its Sprite.
 	if (!titleLogoTexture.loadFromFile(resourcePath + "titleLogo.png"))
 	{
-		return 1;
+        if (!titleLogoTexture.loadFromFile(altResourcePath + "titleLogo.png"))
+        {
+            return 1;
+		}
 	}
 	titleLogo = Sprite(titleLogoTexture);
 	//Scale the logo so it is 2/3 the width of the screen, and 1/5 the height.

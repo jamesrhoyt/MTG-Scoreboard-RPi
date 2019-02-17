@@ -13,7 +13,10 @@ int panelManager::runPanelManager()
 	//Load the Background Texture, and set its Sprite.
 	if (!backgroundTexture.loadFromFile(resourcePath + "startupBackground.png"))
 	{
-		return 1;
+        if (!backgroundTexture.loadFromFile(altResourcePath + "startupBackground.png"))
+        {
+            return 1;
+		}
 	}
 	background = Sprite(backgroundTexture);
 	//Resize and reposition the background to fill the window.
@@ -38,11 +41,17 @@ int panelManager::runPanelManager()
 	//Load the Textures for the "Create Game" tab, then set up its Sprite using the default one.
 	if (!createGameTabClosedTexture.loadFromFile(resourcePath + "createGameTabClosed.png"))
 	{
-		return 1;
+        if (!createGameTabClosedTexture.loadFromFile(altResourcePath + "createGameTabClosed.png"))
+        {
+            return 1;
+		}
 	}
 	if (!createGameTabOpenTexture.loadFromFile(resourcePath + "createGameTabOpen.png"))
 	{
-		return 1;
+        if (!createGameTabOpenTexture.loadFromFile(altResourcePath + "createGameTabOpen.png"))
+        {
+            return 1;
+		}
 	}
 	createGameTab = Sprite(createGameTabClosedTexture);
 	//Position the Tab in the upper-right corner of the screen.

@@ -2,7 +2,7 @@
 1550084715 source:/home/pi/projects/MTGScoreboard/constants.cpp
 	"constants.h"
 
-1550195559 /home/pi/projects/MTGScoreboard/constants.h
+1550250706 /home/pi/projects/MTGScoreboard/constants.h
 	<chrono>
 	<connection.h>
 	<driver.h>
@@ -283,7 +283,7 @@
 	<Gui.hpp>
 	"constants.h"
 
-1550195402 source:/home/pi/projects/MTGScoreboard/main.cpp
+1550263543 source:/home/pi/projects/MTGScoreboard/main.cpp
 	<cstdio>
 	<iostream>
 	"startupScreen.h"
@@ -302,10 +302,10 @@
 	"gamePanelEmperor.h"
 	"gameSetupPanel.h"
 
-1550084715 source:/home/pi/projects/MTGScoreboard/panelManager.cpp
+1550351338 source:/home/pi/projects/MTGScoreboard/panelManager.cpp
 	"panelManager.h"
 
-1550084715 source:/home/pi/projects/MTGScoreboard/startupScreen.cpp
+1550351104 source:/home/pi/projects/MTGScoreboard/startupScreen.cpp
 	"startupScreen.h"
 
 1550084715 source:/home/pi/projects/MTGScoreboard/gamePanelEmperor.cpp
