@@ -145,5 +145,5 @@ sudo chown -R pi:www-data /var/www
 sudo chmod u+rxw,g+rx-w,o-rwx /var/www
 sudo chmod g+s /var/www
 ```
-* Copy the 5 files in the "Server Files" directory to "/var/www/html" on the Raspberry Pi
+* Copy the 6 files in the "Server Files" directory to "/var/www/html" on the Raspberry Pi
 * Go to "localhost/mtg_lobby.php"
