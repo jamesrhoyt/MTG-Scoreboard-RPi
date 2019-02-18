@@ -31,7 +31,7 @@ using namespace sf;
 
 //The file paths for the Art assets and the Player Avatars.
 const std::string resourcePath = "./Resources/";
-const std::string altResourcePath = "../../Resources";  //The path for when this program is run via the executable.
+const std::string altResourcePath = "../../Resources/";  //The path for when this program is run via the executable.
 const std::string avatarPath = resourcePath;
 const std::string altAvatarPath = altResourcePath;  //The path for when this program is run via the executable.
 
