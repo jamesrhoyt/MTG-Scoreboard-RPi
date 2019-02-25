@@ -40,7 +40,7 @@ int startupScreen::runStartup()
 	startText.setFont(*font_mtg);
 	startText.setCharacterSize(32);
 	startText.setFillColor(Color::Transparent);
-	startText.setString("Click To Start");
+	startText.setString("Click/Connect To Start");
 	//Center the Text, and position it two-thirds of the way down the window.
 	startText.setPosition((window->getSize().x / 2) - (startText.getGlobalBounds().width / 2), window->getSize().y * .67f);
 
@@ -58,6 +58,35 @@ int startupScreen::runStartup()
 	//Run the main Window loop.
 	while (window->isOpen())
 	{
+        //Check if the program already has any active games.
+        res = stmt->executeQuery("SELECT COUNT(*) FROM games WHERE active=1");
+        res->next();
+        //If it does, skip to the panelManager.
+        //(This is in case the program has no local input devices.)
+        if(res->getInt(1) > 0)
+        {
+            //Fade the "Start" Text and Title Graphic out before continuing.
+			//First, record the Start Text's current alpha value.
+			startTextAlpha = startText.getFillColor().a;
+			//Second, have a loop run until the Start Text is faded out.
+			while (startTextAlpha > 0)
+			{
+				//Change the "Start Text" alpha value.
+				startTextAlpha -= 4;
+				if (startTextAlpha < 0) startTextAlpha = 0;
+				startText.setFillColor(Color(startText.getFillColor().r, startText.getFillColor().g, startText.getFillColor().b, startTextAlpha));
+				//Draw Code:
+				window->clear();
+				window->draw(background);
+				window->draw(titleLogo);
+				window->draw(startText);
+				window->draw(versionNumberText);
+				window->display();
+			}
+			//Run the main GamePanel Manager.
+            pManager.runPanelManager();
+        }
+
 		sf::Event event;
 		while (window->pollEvent(event))
 		{
@@ -93,7 +122,7 @@ int startupScreen::runStartup()
 				while (startTextAlpha > 0)
 				{
 					//Change the "Start Text" alpha value.
-					startTextAlpha -= 2;
+					startTextAlpha -= 4;
 					if (startTextAlpha < 0) startTextAlpha = 0;
 					startText.setFillColor(Color(startText.getFillColor().r, startText.getFillColor().g, startText.getFillColor().b, startTextAlpha));
 					//Draw Code:
