@@ -367,10 +367,10 @@ void gamePanel::setPosition(int x, int y)
 		//Position the Life Buttons.
 		float largeBuffer = (playerList[i].lifeCounter.getGlobalBounds().width / 2) + (playerList[i].buttonLifePlusOne.getGlobalBounds().width / 2) + 16;
 		float smallBuffer = playerList[i].buttonLifePlusOne.getGlobalBounds().width + 16;
-		playerList[i].buttonLifePlusOne.setPosition(playerList[i].lifeCounter.getPosition().x + largeBuffer, playerList[i].lifeCounter.getPosition().y);
-		playerList[i].buttonLifePlusFive.setPosition(playerList[i].buttonLifePlusOne.getPosition().x + smallBuffer, playerList[i].lifeCounter.getPosition().y);
-		playerList[i].buttonLifeMinusFive.setPosition(playerList[i].lifeCounter.getPosition().x - largeBuffer, playerList[i].lifeCounter.getPosition().y);
-		playerList[i].buttonLifeMinusTen.setPosition(playerList[i].buttonLifeMinusFive.getPosition().x - smallBuffer, playerList[i].lifeCounter.getPosition().y);
+		playerList[i].buttonLifePlusOne.setPosition((playerList[i].lifeCounter.getPosition().x + largeBuffer) - (playerList[i].buttonLifePlusOne.getGlobalBounds().width / 2) + playerList[i].lifeCounter.getLocalBounds().left, playerList[i].lifeCounter.getPosition().y - (playerList[i].buttonLifePlusOne.getGlobalBounds().height / 2) + playerList[i].lifeCounter.getLocalBounds().top);
+		playerList[i].buttonLifePlusFive.setPosition(playerList[i].buttonLifePlusOne.getPosition().x + smallBuffer, playerList[i].lifeCounter.getPosition().y - (playerList[i].buttonLifePlusFive.getGlobalBounds().height / 2) + playerList[i].lifeCounter.getLocalBounds().top);
+		playerList[i].buttonLifeMinusFive.setPosition((playerList[i].lifeCounter.getPosition().x - largeBuffer) - (playerList[i].buttonLifeMinusFive.getGlobalBounds().width / 2) + playerList[i].lifeCounter.getLocalBounds().left, playerList[i].lifeCounter.getPosition().y - (playerList[i].buttonLifeMinusFive.getGlobalBounds().height / 2) + playerList[i].lifeCounter.getLocalBounds().top);
+		playerList[i].buttonLifeMinusTen.setPosition(playerList[i].buttonLifeMinusFive.getPosition().x - smallBuffer, playerList[i].lifeCounter.getPosition().y - (playerList[i].buttonLifeMinusTen.getGlobalBounds().height / 2) + playerList[i].lifeCounter.getLocalBounds().top);
 		//Position the Poison Counter.
 		//If this is not a Commander game, center the Counter.
 		if (gameTypeID != 1)
@@ -383,8 +383,8 @@ void gamePanel::setPosition(int x, int y)
 			playerList[i].poisonCounter.setPosition(playerList[i].lifeCounter.getPosition().x - (playerList[i].lifeCounter.getGlobalBounds().width / 2), playerList[i].lifeCounter.getPosition().y + playerList[i].lifeCounter.getGlobalBounds().height);
 		}
 		//Position the Poison Buttons.
-		playerList[i].buttonPoisonPlusOne.setPosition(playerList[i].poisonCounter.getPosition().x + smallBuffer, playerList[i].poisonCounter.getPosition().y);
-		playerList[i].buttonPoisonMinusOne.setPosition(playerList[i].poisonCounter.getPosition().x - smallBuffer, playerList[i].poisonCounter.getPosition().y);
+		playerList[i].buttonPoisonPlusOne.setPosition((playerList[i].poisonCounter.getPosition().x + smallBuffer) - (playerList[i].buttonPoisonPlusOne.getGlobalBounds().width / 2) + playerList[i].poisonCounter.getLocalBounds().left, playerList[i].poisonCounter.getPosition().y - (playerList[i].buttonPoisonPlusOne.getGlobalBounds().height / 2) + playerList[i].poisonCounter.getLocalBounds().top);
+		playerList[i].buttonPoisonMinusOne.setPosition((playerList[i].poisonCounter.getPosition().x - smallBuffer) - (playerList[i].buttonPoisonMinusOne.getGlobalBounds().width / 2) + playerList[i].poisonCounter.getLocalBounds().left, playerList[i].poisonCounter.getPosition().y - (playerList[i].buttonPoisonMinusOne.getGlobalBounds().height / 2) + playerList[i].poisonCounter.getLocalBounds().top);
 		//Position the Commander objects, if this is a Commander Game.
 		if (gameTypeID == 1)
 		{
@@ -694,7 +694,7 @@ void gamePanel::resize(int width, int height)
 		}
 	}
 	//Reduce the Life Counter Size by 16 for every Player in the game after the 2nd.
-	playerList[0].lifeCounter.setCharacterSize(playerList[0].lifeCounter.getCharacterSize() - (16 * (playerList.size() - 2)));
+	playerList[0].lifeCounter.setCharacterSize(playerList[0].lifeCounter.getCharacterSize() - (4 * (playerList.size() - 2)));
 	//Resize the visual elements for each player, and reset their Origins.
 	for (int i = 0; i < (int)playerList.size(); i++)
 	{

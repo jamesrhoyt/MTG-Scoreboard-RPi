@@ -51,6 +51,8 @@ gameSetupPanel::gameSetupPanel()
 	addPlayerTextbox->getRenderer()->setBorderColor(sf::Color(64, 64, 64, 255));
 	//Position the TextBox just underneath the "header".
 	addPlayerTextbox->setPosition(background.getPosition().x + 36, background.getGlobalBounds().height * .09f);
+	//Remove the TextBox's drop-down arrow.
+	addPlayerTextbox->setVerticalScrollbarPolicy(tgui::Scrollbar::Policy::Never);
 
 	//Set up the Button to add Players to the Database.
 	addPlayerButton = tgui::Button::create();
@@ -100,7 +102,7 @@ gameSetupPanel::gameSetupPanel()
 	//Make the TextBox borders dark grey.
 	teamSizeList->getRenderer()->setBorderColor(tgui::Color(64, 64, 64, 255));
 	//Position the TextBox to the immediate right of "teamSizeHeader".
-	teamSizeList->setPosition(teamSizeHeader.getPosition().x + teamSizeHeader.getGlobalBounds().width + 16, teamSizeHeader.getPosition().y + 8);
+	teamSizeList->setPosition(teamSizeHeader.getPosition().x + teamSizeHeader.getGlobalBounds().width + 16, teamSizeHeader.getPosition().y + 3);
 	//Add each of the team size options to the list, and set "Solo" as the default option.
 	teamSizeList->addItem("Solo", "0");
 	teamSizeList->addItem("Two-Headed", "1");
@@ -112,7 +114,7 @@ gameSetupPanel::gameSetupPanel()
 	addPlayerEntryField(1);
 
 	//Set the Team Size Drop-down's size relative to the 1st Player Entry Field.
-	teamSizeList->setSize(playerEntryFields[0]->getSize().x * .8f, playerEntryFields[0]->getFullSize().y);
+	teamSizeList->setSize(playerEntryFields[0]->getSize().x * .85f, playerEntryFields[0]->getFullSize().y);
 
 	//Move the "Add Player" Button to align with the right edge of the Player Entry Fields, just beneath the last one of them.
 	gameSetupButtonAdd.setPosition((playerEntryFields[1]->getPosition().x + playerEntryFields[1]->getFullSize().x) - (gameSetupButtonAdd.getGlobalBounds().width + 3),
@@ -125,7 +127,7 @@ gameSetupPanel::gameSetupPanel()
 	gameTypeHeader.setCharacterSize(playerListHeader.getCharacterSize());
 	gameTypeHeader.setString("GAME TYPE:");
 	//Position the Text along the left edge of the Panel, leaving enough room for the maximum number of Player Entry Fields.
-	gameTypeHeader.setPosition(background.getPosition().x + 5, background.getPosition().y + (background.getGlobalBounds().height * .65f));
+	gameTypeHeader.setPosition(background.getPosition().x + 5, background.getPosition().y + (background.getGlobalBounds().height * .67f));
 
 	//Set up the Game Type Drop-down.
 	gameTypeList = tgui::ComboBox::create();
@@ -139,8 +141,8 @@ gameSetupPanel::gameSetupPanel()
 	//Make the TextBox borders dark grey.
 	gameTypeList->getRenderer()->setBorderColor(tgui::Color(64, 64, 64, 255));
 	//Position the TextBox to the immediate right of "gameTypeHeader".
-	gameTypeList->setPosition(gameTypeHeader.getPosition().x + gameTypeHeader.getGlobalBounds().width + 16, gameTypeHeader.getPosition().y + 8);
-	gameTypeList->setSize(playerEntryFields[0]->getSize().x * .8f, playerEntryFields[0]->getFullSize().y);
+	gameTypeList->setPosition(gameTypeHeader.getPosition().x + gameTypeHeader.getGlobalBounds().width + 16, gameTypeHeader.getPosition().y + 3);
+	gameTypeList->setSize(playerEntryFields[0]->getSize().x * .85f, playerEntryFields[0]->getFullSize().y);
 	//Add each of the game type options to the list, and set "Standard" as the default option.
 	gameTypeList->addItem("Standard", "0");
 	gameTypeList->addItem("Commander", "1");
@@ -286,7 +288,7 @@ void gameSetupPanel::addPlayerToTable()
 void gameSetupPanel::addPlayerEntryField(int index)
 {
 	//Set up the new Player Number object.
-	playerNumbers.push_back(sf::Text(std::to_string(index + 1) + ".", *font_dejavu, 32));
+	playerNumbers.push_back(sf::Text(std::to_string(index + 1) + ".", *font_dejavu, playerListHeader.getCharacterSize()));
 	playerNumbers[index].setFillColor(sf::Color::White);
 	//Position the new number along the left edge of the Panel, under the left edge of "playerListHeader".
 	playerNumbers[index].setPosition(playerListHeader.getPosition().x + 8, playerListHeader.getPosition().y + playerListHeader.getGlobalBounds().height + 20 +
@@ -298,17 +300,17 @@ void gameSetupPanel::addPlayerEntryField(int index)
 	playerEntryFields[index]->getRenderer()->setFont(*font_dejavu);
 	//playerEntryFields[index]->setReadOnly(false);
 	//playerEntryFields[index]->setMaximumCharacters(14);
-	playerEntryFields[index]->setTextSize(20);
+	playerEntryFields[index]->setTextSize(playerNumbers[index].getCharacterSize() * .9);
 	//Make the TextBox background light grey.
 	playerEntryFields[index]->getRenderer()->setBackgroundColor(tgui::Color(192, 192, 192, 255));
 	playerEntryFields[index]->getRenderer()->setTextColor(sf::Color::Black);
 	playerEntryFields[index]->getRenderer()->setBorders(tgui::Borders(3));
 	//Make the TextBox borders dark grey.
 	playerEntryFields[index]->getRenderer()->setBorderColor(tgui::Color(64, 64, 64, 255));
-	playerEntryFields[index]->setSize(playerNumbers[0].getGlobalBounds().width * 12, playerNumbers[index].getGlobalBounds().height);
+	playerEntryFields[index]->setSize(playerNumbers[0].getGlobalBounds().width * 12, playerNumbers[index].getGlobalBounds().height + 6);
 	//Position the TextBox to the immediate right of its corresponding number.
 	playerEntryFields[index]->setPosition(playerNumbers[0].getPosition().x + playerNumbers[0].getGlobalBounds().width + 30,
-		playerNumbers[index].getPosition().y + playerEntryFields[index]->getRenderer()->getBorders().getTop() + 6);
+		playerNumbers[index].getPosition().y + playerEntryFields[index]->getRenderer()->getBorders().getTop());
 
 	//Add all of the Player names to the Player Entry Field.
 	res = stmt->executeQuery("SELECT name FROM players ORDER BY id ASC");

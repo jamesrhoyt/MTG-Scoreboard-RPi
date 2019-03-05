@@ -73,6 +73,23 @@
 			<Add library="tgui" />
 			<Add directory="/usr/local/lib" />
 		</Linker>
+		<Unit filename="Resources/DejaVuSans.h" />
+		<Unit filename="Resources/MAGIC.h" />
+		<Unit filename="Resources/SATAM___.h" />
+		<Unit filename="Resources/buttonCommanderClose.h" />
+		<Unit filename="Resources/buttonCommanderMinusOne.h" />
+		<Unit filename="Resources/buttonLifeMinusFive.h" />
+		<Unit filename="Resources/buttonLifeMinusTen.h" />
+		<Unit filename="Resources/buttonLifePlusFive.h" />
+		<Unit filename="Resources/buttonLifePlusOne.h" />
+		<Unit filename="Resources/buttonPoisonMinusOne.h" />
+		<Unit filename="Resources/buttonPoisonPlusOne.h" />
+		<Unit filename="Resources/createGameTabClosed.h" />
+		<Unit filename="Resources/createGameTabOpen.h" />
+		<Unit filename="Resources/gameSetupButtonAdd.h" />
+		<Unit filename="Resources/gameSetupButtonRemove.h" />
+		<Unit filename="Resources/startupBackground.h" />
+		<Unit filename="Resources/titleLogo.h" />
 		<Unit filename="constants.cpp" />
 		<Unit filename="constants.h" />
 		<Unit filename="gamePanel.cpp" />
