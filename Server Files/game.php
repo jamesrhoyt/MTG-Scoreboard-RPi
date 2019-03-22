@@ -61,7 +61,7 @@ echo  "height = ".$height;
 <?php	
 	$servername = "localhost";
 	$username = "root";
-	$password = "";
+	$password = "mtgscoreboard";
 	$dbname = "mtg";
 
 	// Create connection
@@ -127,7 +127,7 @@ echo  "height = ".$height;
 		
 		$servername = "localhost";
 		$username = "root";
-		$password = "";
+		$password = "mtgscoreboard";
 		$dbname = "mtg";
 
 		// Create connection
@@ -154,7 +154,7 @@ echo  "height = ".$height;
 
 		$servername = "localhost";
 		$username = "root";
-		$password = "";
+		$password = "mtgscoreboard";
 		$dbname = "mtg";
 
 		// Create connection

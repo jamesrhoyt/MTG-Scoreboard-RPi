@@ -522,7 +522,7 @@ void gamePanelEmperor::disableGUI()
 {
 	for (int i = 0; i < (int)playerList.size(); i++)
 	{
-		playerList[i].displayName->setEnabled(false);
+		playerList[i].displayName->setVisible(false);
 	}
 }
 
@@ -531,6 +531,6 @@ void gamePanelEmperor::enableGUI()
 {
 	for (int i = 0; i < (int)playerList.size(); i++)
 	{
-		playerList[i].displayName->setEnabled(true);
+		playerList[i].displayName->setVisible(true);
 	}
 }
