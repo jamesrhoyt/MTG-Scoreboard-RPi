@@ -283,10 +283,28 @@
 				}
 				//Add this team to the "teams" table.
 				$sql = "INSERT INTO teams (id, team_id, name, game_id, life, player_id, partner1_id, partner1_life, partner1_poison, 
-				partner2_id, partner2_life, partner2_poison, emperor, poison, isAlive) VALUES ('$id', '$team_id', '', '$game_id, 
+				partner2_id, partner2_life, partner2_poison, emperor, poison, isAlive) VALUES ('$id', '$team_id', '', '$game_id', 
 				'$life', '$player_id', '$partner1_id', '$partner1_life', '$partner1_poison', '$partner2_id', '$partner2_life', 
 				'$partner2_poison', '$emperor', '$poison', '$isAlive')";
 				$conn->query($sql);
+				//If this is a Commander Game, set up each "commander_dmg" table entry.
+				if($game_type == 1)
+				{
+					//Iterate through every player in this game.
+					for ($j = 0; $j < $count; $j++)
+					{
+						//Pair that player against every player, including itself.
+						for ($k = 0; $k < $count; $k++)
+						{
+							$sql = "SELECT COUNT(*) AS count FROM commander_dmg";
+							$result = $conn->query($sql);
+							$cmdrCount = $result['count'];
+							$sql = "INSERT INTO commander_dmg (id, game_id, from_id, to_id, life) 
+							VALUES ('$cmdrCount', '$game_id', '$_SESSION[\"players\"][$j]', '$_SESSION[\"players\"][$k]', '0')";
+							$conn->query($sql);
+						}
+					}
+				}
 			}
 		}
 	?>
