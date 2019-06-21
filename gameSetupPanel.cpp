@@ -17,14 +17,14 @@ gameSetupPanel::gameSetupPanel()
 	//Set up the "Add Player" button.
 	if (!gameSetupButtonAddTexture.loadFromFile(resourcePath + "gameSetupButtonAdd.png"))
 	{
-		return;
+		gameSetupButtonAddTexture.loadFromFile(altResourcePath + "gameSetupButtonAdd.png");
 	}
 	gameSetupButtonAdd = sf::Sprite(gameSetupButtonAddTexture);
 
 	//Load the "Remove Player" button Texture.
 	if (!gameSetupButtonRemoveTexture.loadFromFile(resourcePath + "gameSetupButtonRemove.png"))
 	{
-		return;
+		gameSetupButtonRemoveTexture.loadFromFile(altResourcePath + "gameSetupButtonRemove.png");
 	}
 
 	//Set up the header text for the Panel.

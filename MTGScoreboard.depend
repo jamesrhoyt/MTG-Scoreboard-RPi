@@ -174,7 +174,7 @@
 
 1550091572 /usr/include/boost/thread
 
-1551812842 source:/home/pi/projects/MTGScoreboard/gameSetupPanel.cpp
+1557523155 source:/home/pi/projects/MTGScoreboard/gameSetupPanel.cpp
 	"gameSetupPanel.h"
 
 1550084715 /home/pi/projects/MTGScoreboard/gameSetupPanel.h
@@ -270,7 +270,7 @@
 	<TGUI/Renderers/ListBoxRenderer.hpp>
 	<TGUI/Text.hpp>
 
-1551814273 source:/home/pi/projects/MTGScoreboard/gamePanel.cpp
+1551819888 source:/home/pi/projects/MTGScoreboard/gamePanel.cpp
 	"gamePanel.h"
 
 1550084715 /home/pi/projects/MTGScoreboard/gamePanel.h
@@ -308,7 +308,7 @@
 1551126043 source:/home/pi/projects/MTGScoreboard/startupScreen.cpp
 	"startupScreen.h"
 
-1550084715 source:/home/pi/projects/MTGScoreboard/gamePanelEmperor.cpp
+1552944953 source:/home/pi/projects/MTGScoreboard/gamePanelEmperor.cpp
 	"gamePanelEmperor.h"
 
 1550084715 /home/pi/projects/MTGScoreboard/gamePanelEmperor.h
