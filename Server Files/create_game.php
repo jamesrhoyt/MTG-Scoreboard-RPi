@@ -299,7 +299,7 @@
 			<form action="create_game.php" method="post">
 				<input type="submit" name="clearCommand" value="Clear Players" />
 			</form>
-			<input type="button" id="createP" value="Create Player" onclick="location='mtg_lobby.php'" />
+			<input type="button" id="createP" value="Create Player" onclick="location='uploadFiles.php'" />
 		</aside>
 	</div>
 	<br><br><br><br><br><br><br><br><br><br>

@@ -146,4 +146,5 @@ sudo chmod u+rxw,g+rx-w,o-rwx /var/www
 sudo chmod g+s /var/www
 ```
 * Copy the 6 files in the "Server Files" directory to "/var/www/html" on the Raspberry Pi
+* Copy the "player_images" folder in the "Resources" directory to "/var/www/html" on the Raspberry Pi
 * Go to "localhost/mtg_lobby.php"

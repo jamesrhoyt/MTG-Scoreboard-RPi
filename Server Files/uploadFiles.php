@@ -21,7 +21,7 @@
 			  echo "Size: " . ($_FILES["file"]["size"] / 1024) . " Kb<br />";
 			  echo "Stored in: " . $_FILES["file"]["tmp_name"];
 			  
-				$uploads_dir = '../htdocs/player_images/';
+				$uploads_dir = '/player_images/';
 				$tmp_name = $_FILES['file']['tmp_name'];
 				$pic_name = $_FILES['file']['name'];
 				
