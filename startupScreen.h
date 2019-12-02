@@ -36,6 +36,9 @@ private:
 	//Current Version Number:
 	Text versionNumberText;
 
+	//Connection URL:
+	Text connectURLText;
+
 	//GamePanel Manager:
 	panelManager pManager;
 

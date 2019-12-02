@@ -91,6 +91,36 @@
 	left: 50%;
 }
 
+.player_name_emp_1 {
+	position: absolute;
+	font-size: 22vh;
+	line-height: 1.0;
+	white-space: nowrap;
+	text-align: center;
+	top: 5%;
+	left: 25%;
+}
+
+.player_name_emp_2 {
+	position: absolute;
+	font-size: 22vh;
+	line-height: 1.0;
+	white-space: nowrap;
+	text-align: center;
+	top: 5%;
+	left: -5%;
+}
+
+.player_name_emp_3 {
+	position: absolute;
+	font-size: 22vh;
+	line-height: 1.0;
+	white-space: nowrap;
+	text-align: center;
+	top: 5%;
+	left: 55%;
+}
+
 .life_new {
 	position: absolute;
 	text-align: center;
@@ -99,6 +129,36 @@
 	white-space: nowrap;
 	top: 23%;
 	left: 44%;
+}
+
+.player_life_emp_1 {
+	position: absolute;
+	text_align: center;
+	font-size: 26vh;
+	line-height: 1.0;
+	white-space: nowrap;
+	top: 29%;
+	left: 44%;
+}
+
+.player_life_emp_2 {
+	position: absolute;
+	text_align: center;
+	font-size: 26vh;
+	line-height: 1.0;
+	white-space: nowrap;
+	top: 29%;
+	left: 14%;
+}
+
+.player_life_emp_3 {
+	position: absolute;
+	text_align: center;
+	font-size: 26vh;
+	line-height: 1.0;
+	white-space: nowrap;
+	top: 29%;
+	left: 74%;
 }
 
 .player_addlife_button {
@@ -117,6 +177,60 @@
 	left: 18%;
 	width: 16%;
 	height: 16%;
+}
+
+.player_addlife_emp_1 {
+	display: inline-block;
+	position: absolute;
+	top: 24%;
+	left: 46%;
+	width: 20%;
+	height: 8%;
+}
+
+.player_sublife_emp_1 {
+	display: inline-block;
+	position: absolute;
+	top: 62%;
+	left: 46%;
+	width: 20%;
+	height: 8%;
+}
+
+.player_addlife_emp_2 {
+	display: inline-block;
+	position: absolute;
+	top: 24%;
+	left: 16%;
+	width: 20%;
+	height: 8%;
+}
+
+.player_sublife_emp_2 {
+	display: inline-block;
+	position: absolute;
+	top: 62%;
+	left: 16%;
+	width: 20%;
+	height: 8%;
+}
+
+.player_addlife_emp_3 {
+	display: inline-block;
+	position: absolute;
+	top: 24%;
+	left: 76%;
+	width: 20%;
+	height: 8%;
+}
+
+.player_sublife_emp_3 {
+	display: inline-block;
+	position: absolute;
+	top: 62%;
+	left: 76%;
+	width: 20%;
+	height: 8%;
 }
 
 .player_poison {
@@ -169,6 +283,87 @@
 	position: absolute;
 	top: 74%;
 	left: 6%;
+	width: 12%;
+	height: 12%;
+}
+
+.player_poison_emp_1 {
+	position: absolute;
+	font-size: 18vh;
+	line-height: 1.0;
+	text-align: center;
+	top: 68%;
+	left: 44%;
+}
+
+.player_poison_emp_2 {
+	position: absolute;
+	font-size: 18vh;
+	line-height: 1.0;
+	text-align: center;
+	top: 68%;
+	left: 14%;
+}
+
+.player_poison_emp_3 {
+	position: absolute;
+	font-size: 18vh;
+	line-height: 1.0;
+	text-align: center;
+	top: 68%;
+	left: 74%;
+}
+
+.player_addpoison_emp_1 {
+	display: inline-block;
+	position: absolute;
+	top: 74%;
+	left: 60%;
+	width: 12%;
+	height: 12%;
+}
+
+.player_subpoison_emp_1 {
+	display: inline-block;
+	position: absolute;
+	top: 74%;
+	left: 36%;
+	width: 12%;
+	height: 12%;
+}
+
+.player_addpoison_emp_2 {
+	display: inline-block;
+	position: absolute;
+	top: 74%;
+	left: 30%;
+	width: 12%;
+	height: 12%;
+}
+
+.player_subpoison_emp_2 {
+	display: inline-block;
+	position: absolute;
+	top: 74%;
+	left: 6%;
+	width: 12%;
+	height: 12%;
+}
+
+.player_addpoison_emp_3 {
+	display: inline-block;
+	position: absolute;
+	top: 74%;
+	left: 90%;
+	width: 12%;
+	height: 12%;
+}
+
+.player_subpoison_emp_3 {
+	display: inline-block;
+	position: absolute;
+	top: 74%;
+	left: 66%;
 	width: 12%;
 	height: 12%;
 }

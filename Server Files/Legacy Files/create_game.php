@@ -53,8 +53,6 @@
 			$result = $conn->query($query);
 			$row = mysqli_fetch_assoc($result);
 			$game_id = intval($row['c']);
-			//Set the game's "name" value.
-			$gamename = $_POST]'gamename'];
 			//Set the game's "game_type" value.
 			if(isset($_POST['gtype']))
 			{
@@ -86,7 +84,7 @@
 			//Set the game's start time.
 			$start_time = date('Y-m-d H:i:s');
 			//Insert the new "games" entry.
-			$query = "INSERT INTO games (`id`, `name`, `active`, `team_size`, `game_type`, `start_time`, `turns`) VALUES ('$game_id', '$game_name', '1', '$team_size', '$game_type', '$start_time', '0')";
+			$query = "INSERT INTO games (`id`, `name`, `active`, `team_size`, `game_type`, `start_time`, `turns`) VALUES ('$game_id', 'Remote Game', '1', '$team_size', '$game_type', '$start_time', '0')";
 			$conn->query($query);
 			//Create the "teams" table entries.
 			$count = count($_SESSION["players"]);
@@ -267,39 +265,7 @@
 
 				if ($result->num_rows > 0) {
 					$select= '<form action="/create_game.php" target="/create_game.php" method="post">';
-					$select.= '<span>Game Name (make it unique!)*:</span>';
-					$select.= '<span class="teamcount"># of Players/Teams*:</span>';
-					$select.= '<span class="teamsize">Team Size*:</span>';
-					$select.= '<span class="gametype">Game Type*:</span><br>';
-					$select.= '<span><input type="text" name="gamename"></span>';
-					$select.= '<span><select name="teamcount">';
-					$select.= 	'<option value="2">2</option>';
-					$select.= 	'<option value="3">3</option>';
-					$select.= 	'<option value="4">4</option>';
-					$select.= 	'<option value="5">5</option>';
-					$select.= 	'<option value="6">6</option>';
-					$select.= 	'<option value="7">7</option>';
-					$select.= 	'<option value="8">8</option>';
-					$select.= '</select></span>';
-					$select.= '<span><select name="tsize">';
-					$select.= 	'<option value="1">Single</option>';
-					$select.= 	'<option value="2">Two-Headed Giant</option>';
-					$select.= 	'<option value="3">Three-Headed Giant</option>';
-					$select.= '</select></span>';
-					$select.= '<span><select name="gtype">';
-					$select.= 	'<option value="s">Standard</option>';
-					$select.= 	'<option value="c">Commander</option>';
-					$select.= 	'<option value="e">Emperor</option>';
-					$select.= 	'<option value="b">Brawl</option>';
-					$select.= '</select></span><br>';
-					$select.= '<p>Select Players/Teams:</p>';
-					$select.= '<span>Team Name:</span>';
-					$select.= '<span class="teamcount">Leader:</span>';
-					$select.= '<span class="teamsize">Partner 1:</span>';
-					$select.= '<span class="gametype">Partner 2:</span>';
-					//for ($i = 0; $i < $_POST['teamcount']; $i++)
-					//{
-					//}
+					$select.= '<p>Choose Players:</p>';
 					$select.= '<select name="player" id="game" multiple>';
 					// output data of each row
 					while($row = $result->fetch_assoc()) {
@@ -318,9 +284,6 @@
 				$conn->close();
 			?>
 		</section>
-		
-		<?php
-		/*
 		<aside class="side_section">
 			<p>Active Players:</p>
 			
@@ -338,12 +301,23 @@
 			</form>
 			<input type="button" id="createP" value="Create Player" onclick="location='uploadFiles.php'" />
 		</aside>
-		*/
-		?>
 	</div>
+	<br><br><br><br><br><br><br><br><br><br>
+	<p>Game Type:</p>
 	<form method="post">
+	  <input type="radio" name="gtype" value="s" checked> Standard<br>
+	  <input type="radio" name="gtype" value="c"> Commander (EDH)<br>
+	  <input type="radio" name="gtype" value="e"> Emperor<br>
+	  <input type="radio" name="gtype" value="b"> Brawl
+	
+	<p>Team Size:</p>
+	  <input type="radio" name="tsize" value="1" checked> Single<br>
+	  <input type="radio" name="tsize" value="2"> Two-Headed Giant<br>
+	  <input type="radio" name="tsize" value="3"> Three-Headed Giant<br>
+	  
 	  <input type="submit" id="create" name="createGame" value="Create Game" />
 	</form>
+	
 	<?php
 		if(isset($_SERVER['REQUEST_METHOD']) and $_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['clearCommand']))
 		{

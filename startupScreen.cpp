@@ -51,9 +51,17 @@ int startupScreen::runStartup()
 	versionNumberText.setFont(*font_mtg);
 	versionNumberText.setCharacterSize(24);
 	versionNumberText.setFillColor(Color::Black);
-	versionNumberText.setString("version 1.0");
+	versionNumberText.setString("version 1.0.1");
 	//Position the Text in the lower-right corner of the window.
 	versionNumberText.setPosition(window->getSize().x - versionNumberText.getGlobalBounds().width, window->getSize().y - (versionNumberText.getGlobalBounds().height * 2));
+
+	//Set up the Connection URL Text.
+	connectURLText.setFont(*font_dejavu);
+	connectURLText.setCharacterSize(24);
+	connectURLText.setFillColor(Color::Black);
+	connectURLText.setString("Connect to: 192.168.1.201/mtg_lobby.php");
+	//Position the Text above the Version Number.
+    connectURLText.setPosition(window->getSize().x - connectURLText.getGlobalBounds().width, versionNumberText.getPosition().y - (versionNumberText.getGlobalBounds().height * 2));
 
 	//Run the main Window loop.
 	while (window->isOpen())
@@ -81,6 +89,7 @@ int startupScreen::runStartup()
 				window->draw(titleLogo);
 				window->draw(startText);
 				window->draw(versionNumberText);
+				window->draw(connectURLText);
 				window->display();
 			}
 			//Run the main GamePanel Manager.
@@ -131,6 +140,7 @@ int startupScreen::runStartup()
 					window->draw(titleLogo);
 					window->draw(startText);
 					window->draw(versionNumberText);
+					window->draw(connectURLText);
 					window->display();
 				}
 				//Run the main GamePanel Manager.
@@ -163,6 +173,7 @@ int startupScreen::runStartup()
 		window->draw(titleLogo);
 		window->draw(startText);
 		window->draw(versionNumberText);
+		window->draw(connectURLText);
 		window->display();
 	}
 	return 0;

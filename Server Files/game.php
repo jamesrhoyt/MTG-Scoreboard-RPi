@@ -120,10 +120,17 @@ echo  "height = ".$height;
 					//Create the form that enables the inputs.
 					$display .= '<form action="game.php" method="post">';
 					//Display the Player's avatar and name.
-					$display .=  '<div class="player_life" id="name_'.$posID.'">';
+					if($gameInfo['game_type'] != 2)
+					{
+						$display .=  '<div class="player_life" id="name_'.$posID.'">';
+					}
+					else
+					{
+						$display .=  '<div class="player_name_emp_1" id="name_'.$posID.'">';
+					}
 					$display .=   '<img src="'.$info['avatar'].'" id="image_'.$posID.'" alt="Picture Missing!" onerror="this.src=\'player_images/default.jpg\';" style="width:100px;height:100px;">';
-					//If this is a Single game, use the Player's name.
-					if($gameInfo['team_size'] == 1)
+					//If this is a Single game (or an Emperor game), use the Player's name.
+					if($gameInfo['team_size'] == 1 || $gameInfo['game_type'] == 2)
 					{
 						$display .=   ' '.$info['name'].'';
 					}
@@ -134,62 +141,178 @@ echo  "height = ".$height;
 					}
 					$display .=  '</div>';
 					//Display the Player's life value.
-					$display .=  '<div class="life_new" id="life_'.$posID.'">';
+					if($gameInfo['game_type'] != 2)
+					{
+						$display .=  '<div class="life_new" id="life_'.$posID.'">';
+					}
+					else
+					{
+						$display .= '<div class="player_life_emp_1" id="life_'.$posID.'">';
+					}
 					$display .=   $row['life'];
 					$display .=  '</div>';
 					//Save the Player's ID value, to be used by the inputs.
-					$display .=  '<input type="hidden" name="playerId" value="'.$row['id'].'">';
+					$display .=  '<input type="hidden" name="playerId" value="'.$row['player_id'].'">';
+					//Save the Game Type value, to use in the positioning code.
+					$display .=  '<input type="hidden" id="gameType" value="'.$gameInfo['game_type'].'">';
 					//Save the Player's current "commander" index, to be used by the "cmdr" inputs.
 					$display .=  '<input type="hidden" name="cmdrIndex" value="'.$_SESSION["cmdrIndices"][$posID].'">';
 					//Save the Player's current index in the game, to use when scrolling their Commander counters.
 					$display .=  '<input type="hidden" name="playerIndex" value="'.$posID.'">';
 					//Display the Player's "+" Life button.
-					$display .=  '<div class="player_addlife_button">';
+					if($gameInfo['game_type'] != 2)
+					{
+						$display .=  '<div class="player_addlife_button">';
+					}
+					else
+					{
+						$display .= '<div class="player_addlife_emp_1">';
+					}
 					$display .=   '<input type="submit" name="AddValue" value="+" />';
 					$display .=  '</div>';
 					//Display the Player's "-" Life button.
-					$display .=  '<div class="player_sublife_button">';
+					if($gameInfo['game_type'] != 2)
+					{
+						$display .=  '<div class="player_sublife_button">';
+					}
+					else
+					{
+						$display .= '<div class="player_sublife_emp_1">';
+					}
 					$display .=   '<input type="submit" name="SubValue" value="-" />';
 					$display .=  '</div>';
 					//Display the Player's poison value.
-					//If this isn't a Commander game, use the "original" CSS positioning.
-					if($gameInfo['game_type'] != 1)
-					{
-						$display .=  '<div class="player_poison" id="poison_'.$posID.'">';
-					}
-					//Otherwise, use the "alternate" CSS positioning.
-					else
+					//If this is a Commander game, use the "alternate" CSS positioning.
+					if($gameInfo['game_type'] == 1)
 					{
 						$display .=  '<div class="player_poison_alt" id="poison_'.$posID.'">';
+					}
+					//If this is an Emperor game, use the "emperor" CSS positioning.
+					else if ($gameInfo['game_type'] == 2)
+					{
+						$display .= '<div class="player_poison_emp_1" id="poison_'.$posID.'">';
+					}
+					//Otherwise, use the "original" CSS positioning.
+					else
+					{
+						$display .=  '<div class="player_poison" id="poison_'.$posID.'">';
 					}
 					$display .=   $row['poison'];
 					$display .=  '</div>';
 					//Display the Player's "+" Poison button.
-					//If this isn't a Commander game, use the "original" CSS positioning.
-					if($gameInfo['game_type'] != 1)
-					{
-						$display .=  '<div class="player_addpoison_button">';
-					}
-					//Otherwise, use the "alternate" CSS positioning.
-					else
+					//If this is a Commander game, use the "alternate" CSS positioning.
+					if($gameInfo['game_type'] == 1)
 					{
 						$display .=  '<div class="player_addpoison_button_alt">';
+					}
+					//If this is an Emperor game, use the "emperor" CSS positioning.
+					else if ($gameInfo['game_type'] == 2)
+					{
+						$display .=  '<div class="player_addpoison_emp_1">';
+					}
+					//Otherwise, use the "original" CSS positioning.
+					else
+					{
+						$display .=  '<div class="player_addpoison_button">';
 					}
 					$display .=   '<input type="submit" name="AddPoison" value="+" />';
 					$display .=  '</div>';
 					//Display the Player's "-" Poison button.
-					//If this isn't a Commander game, use the "original" CSS positioning.
-					if($gameInfo['game_type'] != 1)
-					{
-						$display .=  '<div class="player_subpoison_button">';
-					}
-					//Otherwise, use the "alternate" CSS positioning.
-					else
+					//If this is a Commander game, use the "alternate" CSS positioning.
+					if($gameInfo['game_type'] == 1)
 					{
 						$display .=  '<div class="player_subpoison_button_alt">';
 					}
+					//If this is an Emperor game, use the "emperor" CSS positioning.
+					else if ($gameInfo['game_type'] == 2)
+					{
+						$display .=  '<div class="player_subpoison_emp_1">';
+					}
+					//Otherwise, use the "original" CSS positioning.
+					else
+					{
+						$display .=  '<div class="player_subpoison_button">';
+					}
 					$display .=   '<input type="submit" name="SubPoison" value="-" />';
 					$display .=  '</div>';
+					//If this is an Emperor game with a team size of 2 or greater, display the 1st partner's info.
+					if($gameInfo['game_type'] == 2 && $gameInfo['team_size'] >= 2)
+					{
+						//Get the 1st Partner's info.
+						$sqp1 = "SELECT name, avatar FROM players Where id =".$row['partner1_id'];
+						$partnerInfo1 = $conn->query($sqp1);
+						$pInfo1 = $partnerInfo1->fetch_assoc();
+						//Save the 1st Partner's ID value for the inputs to use.
+						$display .= '<input type="hidden" name="partner1Id" value="'.$row['partner1_id'].'">';
+						//Set the 1st Partner's Name and Avatar.
+						$display .= '<div class="player_name_emp_2" id="nameP1_'.$posID.'">';
+						$display .=  '<img src="'.$pInfo1['avatar'].'" id="imageP1_'.$posID.'" onerror="this.src=\'player_images/default.jpg\';" style="width:100px;height:100px;">';
+						$display .=  ''.$pInfo1['name'].'';
+						$display .= '</div>';
+						//Set the 1st Partner's Life Counter.
+						$display .= '<div class="player_life_emp_2" id="lifeP1_'.$posID.'">';
+						$display .=  ''.$row['partner1_life'].'';
+						$display .= '</div>';
+						//Set the 1st Partner's AddLife Button.
+						$display .= '<div class="player_addlife_emp_2">';
+						$display .=  '<input type="submit" name="AddLifePartner1" value="+" />';
+						$display .= '</div>';
+						//Set the 1st Partner's SubLife Button.
+						$display .= '<div class="player_sublife_emp_2">';
+						$display .=  '<input type="submit" name="SubLifePartner1" value="-" />';
+						$display .= '</div>';
+						//Set the 1st Partner's Poison Counter.
+						$display .= '<div class="player_poison_emp_2" id="poisonP1_'.$posID.'">';
+						$display .=  ''.$row['partner1_poison'].'';
+						$display .= '</div>';
+						//Set the 1st Partner's AddPoison Button.
+						$display .= '<div class="player_addpoison_emp_2">';
+						$display .=  '<input type="submit" name="AddPoisonPartner1" value="+" />';
+						$display .= '</div>';
+						//Set the 1st Partner's SubPoison Button.
+						$display .= '<div class="player_subpoison_emp_2">';
+						$display .=  '<input type="submit" name="SubPoisonPartner1" value="-" />';
+						$display .= '</div>';
+					}
+					//If this is an Emperor game with a team size of 3, display the 2nd partner's info.
+					if($gameInfo['game_type'] == 2 && $gameInfo['team_size'] == 3)
+					{
+						//Get the 2nd Partner's info.
+						$sqp2 = "SELECT name, avatar FROM players Where id =".$row['partner2_id'];
+						$partnerInfo2 = $conn->query($sqp2);
+						$pInfo2 = $partnerInfo2->fetch_assoc();
+						//Save the 2nd Partner's ID value for the inputs to use.
+						$display .= '<input type="hidden" name="partner2Id" value="'.$row['partner2_id'].'">';
+						//Set the 2nd Partner's Name and Avatar.
+						$display .= '<div class="player_name_emp_3" id="nameP2_'.$posID.'">';
+						$display .=  '<img src="'.$pInfo2['avatar'].'" id="imageP2_'.$posID.'" onerror="this.src=\'player_images/default.jpg\';" style="width:100px;height:100px;">';
+						$display .=  ''.$pInfo2['name'].'';
+						$display .= '</div>';
+						//Set the 2nd Partner's Life Counter.
+						$display .= '<div class="player_life_emp_3" id="lifeP2_'.$posID.'">';
+						$display .=  ''.$row['partner2_life'].'';
+						$display .= '</div>';
+						//Set the 2nd Partner's AddLife Button.
+						$display .= '<div class="player_addlife_emp_3">';
+						$display .=  '<input type="submit" name="AddLifePartner2" value="+" />';
+						$display .= '</div>';
+						//Set the 2nd Partner's SubLife Button.
+						$display .= '<div class="player_sublife_emp_3">';
+						$display .=  '<input type="submit" name="SubLifePartner2" value="-" />';
+						$display .= '</div>';
+						//Set the 2nd Partner's Poison Counter.
+						$display .= '<div class="player_poison_emp_3" id="poisonP2_'.$posID.'">';
+						$display .=  ''.$row['partner2_poison'].'';
+						$display .= '</div>';
+						//Set the 2nd Partner's AddPoison Button.
+						$display .= '<div class="player_addpoison_emp_3">';
+						$display .=  '<input type="submit" name="AddPoisonPartner2" value="+" />';
+						$display .= '</div>';
+						//Set the 2nd Partner's SubPoison Button.
+						$display .= '<div class="player_subpoison_emp_3">';
+						$display .=  '<input type="submit" name="SubPoisonPartner2" value="-" />';
+						$display .= '</div>';
+					}
 					//If this is a Commander game, create the Commander counters.
 					if($gameInfo['game_type'] == 1)
 					{
@@ -282,7 +405,7 @@ echo  "height = ".$height;
 			die("Connection failed: " . $conn->connect_error);
 		} 
 		
-		$sql = "UPDATE teams SET life = life + 1 Where id =".$_POST['playerId'];
+		$sql = "UPDATE teams SET life = life + 1 Where player_id =".$_POST['playerId'];
 		$result = $conn->query($sql);
 		
 		$conn->close();
@@ -309,7 +432,7 @@ echo  "height = ".$height;
 			die("Connection failed: " . $conn->connect_error);
 		} 
 		
-		$sql = "UPDATE teams SET life = life - 1 Where id =".$_POST['playerId'];
+		$sql = "UPDATE teams SET life = life - 1 Where player_id =".$_POST['playerId'];
 		$result = $conn->query($sql);
 		
 		$conn->close();
@@ -334,7 +457,7 @@ echo  "height = ".$height;
 			die("Connection failed: " . $conn->connect_error);
 		} 
 		
-		$sql = "UPDATE teams SET poison = poison + 1 Where id =".$_POST['playerId'];
+		$sql = "UPDATE teams SET poison = poison + 1 Where player_id =".$_POST['playerId'];
 		$result = $conn->query($sql);
 		
 		$conn->close();
@@ -359,7 +482,7 @@ echo  "height = ".$height;
 			die("Connection failed: " . $conn->connect_error);
 		} 
 		
-		$sql = "UPDATE teams SET poison = poison - 1 Where id =".$_POST['playerId'];
+		$sql = "UPDATE teams SET poison = poison - 1 Where player_id =".$_POST['playerId'];
 		$result = $conn->query($sql);
 		
 		$conn->close();
@@ -494,12 +617,173 @@ echo  "height = ".$height;
 	{
 		$_SESSION["pageNumber"] += $pageValue;
 	}
+	if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['AddLifePartner1']))
+	{
+		addLifePartner(1);
+		$_POST['AddLifePartner1'] = null;
+		echo '<meta http-equiv="refresh" content="0">';
+	}
+	if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['AddLifePartner2']))
+	{
+		addLifePartner(2);
+		$_POST['AddLifePartner2'] = null;
+		echo '<meta http-equiv="refresh" content="0">';
+	}
+	function addLifePartner($partnerValue)
+	{
+		$servername = "localhost";
+		$username = "root";
+		$password = "mtgscoreboard";
+		$dbname = "mtg";
+
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+		}
+		
+		//If "partnerValue" is 1, increase the 1st partner's life.
+		if($partnerValue == 1)
+		{
+			$sql = "UPDATE teams SET partner1_life = partner1_life + 1 WHERE game_id=".$_SESSION['game']." AND partner1_id=".$_POST['partner1Id'];
+		}
+		//If "partnerValue" is 2, increase the 2nd partner's life.
+		else if ($partnerValue == 2)
+		{
+			$sql = "UPDATE teams SET partner2_life = partner2_life + 1 WHERE game_id=".$_SESSION['game']." AND partner2_id=".$_POST['partner2Id'];
+		}
+		$result = $conn->query($sql);
+		
+		$conn->close();
+	}
+	if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['SubLifePartner1']))
+	{
+		subLifePartner(1);
+		$_POST['SubLifePartner1'] = null;
+		echo '<meta http-equiv="refresh" content="0">';
+	}
+	if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['SubLifePartner2']))
+	{
+		subLifePartner(2);
+		$_POST['SubLifePartner2'] = null;
+		echo '<meta http-equiv="refresh" content="0">';
+	}
+	function subLifePartner($partnerValue)
+	{
+		$servername = "localhost";
+		$username = "root";
+		$password = "mtgscoreboard";
+		$dbname = "mtg";
+
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+		}
+		
+		//If "partnerValue" is 1, decrease the 1st partner's life.
+		if($partnerValue == 1)
+		{
+			$sql = "UPDATE teams SET partner1_life = partner1_life - 1 WHERE game_id=".$_SESSION['game']." AND partner1_id=".$_POST['partner1Id'];
+		}
+		//If "partnerValue" is 2, decrease the 2nd partner's life.
+		else if ($partnerValue == 2)
+		{
+			$sql = "UPDATE teams SET partner2_life = partner2_life - 1 WHERE game_id=".$_SESSION['game']." AND partner2_id=".$_POST['partner2Id'];
+		}
+		$result = $conn->query($sql);
+		
+		$conn->close();
+	}
+	if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['AddPoisonPartner1']))
+	{
+		addPoisonPartner(1);
+		$_POST['AddPoisonPartner1'] = null;
+		echo '<meta http-equiv="refresh" content="0">';
+	}
+	if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['AddPoisonPartner2']))
+	{
+		addPoisonPartner(2);
+		$_POST['AddPoisonPartner2'] = null;
+		echo '<meta http-equiv="refresh" content="0">';
+	}
+	function addPoisonPartner($partnerValue)
+	{
+		$servername = "localhost";
+		$username = "root";
+		$password = "mtgscoreboard";
+		$dbname = "mtg";
+
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+		}
+		
+		//If "partnerValue" is 1, increase the 1st partner's poison.
+		if($partnerValue == 1)
+		{
+			$sql = "UPDATE teams SET partner1_poison = partner1_poison + 1 WHERE game_id=".$_SESSION['game']." AND partner1_id=".$_POST['partner1Id'];
+		}
+		//If "partnerValue" is 2, increase the 2nd partner's poison.
+		else if ($partnerValue == 2)
+		{
+			$sql = "UPDATE teams SET partner2_poison = partner2_poison + 1 WHERE game_id=".$_SESSION['game']." AND partner2_id=".$_POST['partner2Id'];
+		}
+		$result = $conn->query($sql);
+		
+		$conn->close();
+	}
+	if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['SubPoisonPartner1']))
+	{
+		subPoisonPartner(1);
+		$_POST['SubPoisonPartner1'] = null;
+		echo '<meta http-equiv="refresh" content="0">';
+	}
+	if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['SubPoisonPartner2']))
+	{
+		subPoisonPartner(2);
+		$_POST['SubPoisonPartner2'] = null;
+		echo '<meta http-equiv="refresh" content="0">';
+	}
+	function subPoisonPartner($partnerValue)
+	{
+		$servername = "localhost";
+		$username = "root";
+		$password = "mtgscoreboard";
+		$dbname = "mtg";
+
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+		}
+		
+		//If "partnerValue" is 1, decrease the 1st partner's poison.
+		if($partnerValue == 1)
+		{
+			$sql = "UPDATE teams SET partner1_poison = partner1_poison - 1 WHERE game_id=".$_SESSION['game']." AND partner1_id=".$_POST['partner1Id'];
+		}
+		//If "partnerValue" is 2, decrease the 2nd partner's poison.
+		else if ($partnerValue == 2)
+		{
+			$sql = "UPDATE teams SET partner2_poison = partner2_poison - 1 WHERE game_id=".$_SESSION['game']." AND partner2_id=".$_POST['partner2Id'];
+		}
+		$result = $conn->query($sql);
+		
+		$conn->close();
+	}
 ?>
 <script>
 	var borderSize = 10;
 	var life_width = (window.innerHeight/6);
 	var i;
 	var start = 4 * document.getElementById("pageNumber").getAttribute("value");
+	var gameType = document.getElementById("gameType").getAttribute("value");
 	for(i = start; i < (start + 4); i++)
 	{
 		var player = document.getElementById("player_" + i);
@@ -517,8 +801,15 @@ echo  "height = ".$height;
 		
 		var elem = document.getElementById("name_" + i);
 		elem.style.fontSize = (window.innerHeight / 12);
-		elem.style.width = (window.innerWidth / 2);
-		elem.style.cssFloat = 'left';
+		if(gameType == 2)
+		{
+			elem.style.width = (window.innerWidth / 4);
+		}
+		else
+		{
+			elem.style.width = (window.innerWidth / 2);
+		}
+		elem.style.cssFloat = 'center';
 		
 		var life = document.getElementById("life_" + i);
 		life.style.fontSize = (window.innerHeight / 6);
@@ -543,6 +834,65 @@ echo  "height = ".$height;
 		poison.style.height = (window.innerHeight / 8);
 		poison.style.width = life_width;
 		poison.style.cssFloat = 'center';
+		
+		if(gameType == 2)
+		{
+			//Set the Partner1 values (emperor-only)
+			var imageP1 = document.getElementById("imageP1_" + i);
+			imageP1.style.height = (window.innerHeight/12);
+			imageP1.style.width = (window.innerHeight/12);
+			imageP1.style.top = player.style.top + (player.style.height / 12);
+			imageP1.style.left = image.style.left - (player.style.width * .9);
+			
+			var elemP1 = document.getElementById("nameP1_" + i);
+			elemP1.style.fontSize = (window.innerHeight / 12);
+			elemP1.style.width = (window.innerWidth / 4);
+			elemP1.style.cssFloat = 'left';
+			
+			var lifeP1 = document.getElementById("lifeP1_" + i);
+			lifeP1.style.fontSize = (window.innerHeight / 6);
+			lifeP1.style.top = player.style.top + (window.innerHeight / 6);
+			lifeP1.style.left = life.style.left - (player.style.width * .3);
+			lifeP1.style.height = (window.innerHeight / 6);
+			lifeP1.style.width = life_width;
+			lifeP1.style.cssFloat = 'center';
+			
+			var poisonP1 = document.getElementById("poisonP1_" + i);
+			poisonP1.style.fontSize = (window.innerHeight / 8);
+			poisonP1.style.top = player.style.top + (window.innerHeight * .37);
+			poisonP1.style.left = poison.style.left - (player.style.width * .3);
+			poisonP1.style.height = (window.innerHeight / 8);
+			poisonP1.style.width = life_width;
+			poisonP1.style.cssFloat = 'center';
+			
+			//Set the Partner2 values (emperor-only)
+			var imageP2 = document.getElementById("imageP2_" + i);
+			imageP2.style.height = (window.innerHeight/12);
+			imageP2.style.width = (window.innerHeight/12);
+			imageP2.style.top = player.style.top + (player.style.height / 12);
+			imageP2.style.left = image.style.left + (player.style.width * .9);
+			
+			var elemP2 = document.getElementById("nameP2_" + i);
+			elemP2.style.fontSize = (window.innerHeight / 12);
+			elemP2.style.width = (window.innerWidth / 4);
+			elemP2.style.cssFloat = 'right';
+			
+			var lifeP2 = document.getElementById("lifeP2_" + i);
+			lifeP2.style.fontSize = (window.innerHeight / 6);
+			lifeP2.style.top = player.style.top + (window.innerHeight / 6);
+			lifeP2.style.left = life.style.left + (player.style.width * .3);
+			lifeP2.style.height = (window.innerHeight / 6);
+			lifeP2.style.width = life_width;
+			lifeP2.style.cssFloat = 'center';
+			
+			var poisonP2 = document.getElementById("poisonP2_" + i);
+			poisonP2.style.fontSize = (window.innerHeight / 8);
+			poisonP2.style.top = player.style.top + (window.innerHeight * .37);
+			poisonP2.style.left = poison.style.left + (player.style.width * .3);
+			poisonP2.style.height = (window.innerHeight / 8);
+			poisonP2.style.width = life_width;
+			poisonP2.style.cssFloat = 'center';
+		}
 	}
 	var j;
 	for (j = 0; j < 10; j++)

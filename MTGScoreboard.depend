@@ -288,7 +288,7 @@
 	<iostream>
 	"startupScreen.h"
 
-1550084715 /home/pi/projects/MTGScoreboard/startupScreen.h
+1566583136 /home/pi/projects/MTGScoreboard/startupScreen.h
 	<cmath>
 	<Graphics.hpp>
 	"panelManager.h"
@@ -305,7 +305,7 @@
 1551309756 source:/home/pi/projects/MTGScoreboard/panelManager.cpp
 	"panelManager.h"
 
-1551126043 source:/home/pi/projects/MTGScoreboard/startupScreen.cpp
+1566589268 source:/home/pi/projects/MTGScoreboard/startupScreen.cpp
 	"startupScreen.h"
 
 1552944953 source:/home/pi/projects/MTGScoreboard/gamePanelEmperor.cpp

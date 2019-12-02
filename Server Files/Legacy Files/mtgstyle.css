@@ -62,25 +62,11 @@ nav {
 }
 
 .main_section {
-	width: 100%;
+	width: 70%;
+    float: left;
 }
 
 .side_section {
 	width: 25%;
     float: right;
-}
-
-.teamcount {
-	position: absolute;
-	left: 40%;
-}
-
-.teamsize {
-	position: absolute;
-	left: 60%;
-}
-
-.gametype {
-	position: absolute;
-	left: 80%;
 }
