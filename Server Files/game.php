@@ -780,22 +780,22 @@ echo  "height = ".$height;
 ?>
 <script>
 	var borderSize = 10;
-	var life_width = (window.innerHeight/6);
+	var life_width = (window.innerHeight/3);
 	var i;
 	var start = 4 * document.getElementById("pageNumber").getAttribute("value");
 	var gameType = document.getElementById("gameType").getAttribute("value");
 	for(i = start; i < (start + 4); i++)
 	{
 		var player = document.getElementById("player_" + i);
-		player.style.top = (window.innerHeight/2) * Math.floor((i - start)/ 2);
-		player.style.left = (window.innerWidth/2) * (i % 2);
+		player.style.top = (window.innerHeight/4) * (i - start);
+		player.style.left = 0;
 		player.style.borderWidth = "10px";
-		player.style.height = (window.innerHeight/2)-borderSize;
-		player.style.width = (window.innerWidth/2)-(2*borderSize);
+		player.style.height = (window.innerHeight/4)-borderSize;
+		player.style.width = window.innerWidth-borderSize;
 		
 		var image = document.getElementById("image_" + i);
-		image.style.height = (window.innerHeight/12);
-		image.style.width = (window.innerHeight/12);
+		image.style.height = (window.innerHeight/24);
+		image.style.width = (window.innerHeight/24);
 		image.style.top = player.style.top + (player.style.height / 12);
 		image.style.left = player.style.left + (player.style.width * .22);
 		
@@ -812,9 +812,9 @@ echo  "height = ".$height;
 		elem.style.cssFloat = 'center';
 		
 		var life = document.getElementById("life_" + i);
-		life.style.fontSize = (window.innerHeight / 6);
-		life.style.top = player.style.top + (window.innerHeight / 6);
-		life.style.left =  player.style.left + (window.innerWidth / 6);
+		life.style.fontSize = (window.innerHeight / 12);
+		life.style.top = player.style.top + (window.innerHeight / 12);
+		life.style.left =  player.style.left + (window.innerWidth / 3);
 		
 		life.style.height = (window.innerHeight / 6);
 		life.style.width = life_width;
@@ -828,10 +828,10 @@ echo  "height = ".$height;
 		// alert( window.innerWidth-(2*borderSize)-life_width);
 		
 		var poison = document.getElementById("poison_" + i);
-		poison.style.fontSize = (window.innerHeight / 8);
-		poison.style.top = player.style.top + (window.innerHeight * .37);
-		poison.style.left = player.style.left + (window.innerWidth / 4);
-		poison.style.height = (window.innerHeight / 8);
+		poison.style.fontSize = (window.innerHeight / 16);
+		poison.style.top = player.style.top + (window.innerHeight * .185);
+		poison.style.left = player.style.left + (window.innerWidth / 2);
+		poison.style.height = (window.innerHeight / 16);
 		poison.style.width = life_width;
 		poison.style.cssFloat = 'center';
 		
@@ -839,57 +839,57 @@ echo  "height = ".$height;
 		{
 			//Set the Partner1 values (emperor-only)
 			var imageP1 = document.getElementById("imageP1_" + i);
-			imageP1.style.height = (window.innerHeight/12);
-			imageP1.style.width = (window.innerHeight/12);
+			imageP1.style.height = (window.innerHeight/24);
+			imageP1.style.width = (window.innerHeight/24);
 			imageP1.style.top = player.style.top + (player.style.height / 12);
 			imageP1.style.left = image.style.left - (player.style.width * .9);
 			
 			var elemP1 = document.getElementById("nameP1_" + i);
-			elemP1.style.fontSize = (window.innerHeight / 12);
+			elemP1.style.fontSize = (window.innerHeight / 24);
 			elemP1.style.width = (window.innerWidth / 4);
 			elemP1.style.cssFloat = 'left';
 			
 			var lifeP1 = document.getElementById("lifeP1_" + i);
-			lifeP1.style.fontSize = (window.innerHeight / 6);
-			lifeP1.style.top = player.style.top + (window.innerHeight / 6);
+			lifeP1.style.fontSize = (window.innerHeight / 12);
+			lifeP1.style.top = player.style.top + (window.innerHeight / 12);
 			lifeP1.style.left = life.style.left - (player.style.width * .3);
-			lifeP1.style.height = (window.innerHeight / 6);
+			lifeP1.style.height = (window.innerHeight / 12);
 			lifeP1.style.width = life_width;
 			lifeP1.style.cssFloat = 'center';
 			
 			var poisonP1 = document.getElementById("poisonP1_" + i);
-			poisonP1.style.fontSize = (window.innerHeight / 8);
-			poisonP1.style.top = player.style.top + (window.innerHeight * .37);
+			poisonP1.style.fontSize = (window.innerHeight / 16);
+			poisonP1.style.top = player.style.top + (window.innerHeight * .185);
 			poisonP1.style.left = poison.style.left - (player.style.width * .3);
-			poisonP1.style.height = (window.innerHeight / 8);
+			poisonP1.style.height = (window.innerHeight / 16);
 			poisonP1.style.width = life_width;
 			poisonP1.style.cssFloat = 'center';
 			
 			//Set the Partner2 values (emperor-only)
 			var imageP2 = document.getElementById("imageP2_" + i);
-			imageP2.style.height = (window.innerHeight/12);
-			imageP2.style.width = (window.innerHeight/12);
+			imageP2.style.height = (window.innerHeight/24);
+			imageP2.style.width = (window.innerHeight/24);
 			imageP2.style.top = player.style.top + (player.style.height / 12);
 			imageP2.style.left = image.style.left + (player.style.width * .9);
 			
 			var elemP2 = document.getElementById("nameP2_" + i);
-			elemP2.style.fontSize = (window.innerHeight / 12);
+			elemP2.style.fontSize = (window.innerHeight / 24);
 			elemP2.style.width = (window.innerWidth / 4);
 			elemP2.style.cssFloat = 'right';
 			
 			var lifeP2 = document.getElementById("lifeP2_" + i);
-			lifeP2.style.fontSize = (window.innerHeight / 6);
-			lifeP2.style.top = player.style.top + (window.innerHeight / 6);
+			lifeP2.style.fontSize = (window.innerHeight / 12);
+			lifeP2.style.top = player.style.top + (window.innerHeight / 12);
 			lifeP2.style.left = life.style.left + (player.style.width * .3);
-			lifeP2.style.height = (window.innerHeight / 6);
+			lifeP2.style.height = (window.innerHeight / 12);
 			lifeP2.style.width = life_width;
 			lifeP2.style.cssFloat = 'center';
 			
 			var poisonP2 = document.getElementById("poisonP2_" + i);
-			poisonP2.style.fontSize = (window.innerHeight / 8);
-			poisonP2.style.top = player.style.top + (window.innerHeight * .37);
+			poisonP2.style.fontSize = (window.innerHeight / 16);
+			poisonP2.style.top = player.style.top + (window.innerHeight * .185);
 			poisonP2.style.left = poison.style.left + (player.style.width * .3);
-			poisonP2.style.height = (window.innerHeight / 8);
+			poisonP2.style.height = (window.innerHeight / 16);
 			poisonP2.style.width = life_width;
 			poisonP2.style.cssFloat = 'center';
 		}

@@ -83,7 +83,7 @@
 ?>
 
 .player_life {
-	font-size: 23.5vh;
+	font-size: 12vh;
 	line-height: 1.0;
 	white-space: nowrap;
 	text-align: center;
@@ -93,7 +93,7 @@
 
 .player_name_emp_1 {
 	position: absolute;
-	font-size: 22vh;
+	font-size: 11vh;
 	line-height: 1.0;
 	white-space: nowrap;
 	text-align: center;
@@ -103,7 +103,7 @@
 
 .player_name_emp_2 {
 	position: absolute;
-	font-size: 22vh;
+	font-size: 11vh;
 	line-height: 1.0;
 	white-space: nowrap;
 	text-align: center;
@@ -113,7 +113,7 @@
 
 .player_name_emp_3 {
 	position: absolute;
-	font-size: 22vh;
+	font-size: 11vh;
 	line-height: 1.0;
 	white-space: nowrap;
 	text-align: center;
@@ -124,7 +124,7 @@
 .life_new {
 	position: absolute;
 	text-align: center;
-	font-size: 26vh;
+	font-size: 13vh;
 	line-height: 1.0;
 	white-space: nowrap;
 	top: 23%;
@@ -134,7 +134,7 @@
 .player_life_emp_1 {
 	position: absolute;
 	text_align: center;
-	font-size: 26vh;
+	font-size: 13vh;
 	line-height: 1.0;
 	white-space: nowrap;
 	top: 29%;
@@ -144,7 +144,7 @@
 .player_life_emp_2 {
 	position: absolute;
 	text_align: center;
-	font-size: 26vh;
+	font-size: 13vh;
 	line-height: 1.0;
 	white-space: nowrap;
 	top: 29%;
@@ -154,7 +154,7 @@
 .player_life_emp_3 {
 	position: absolute;
 	text_align: center;
-	font-size: 26vh;
+	font-size: 13vh;
 	line-height: 1.0;
 	white-space: nowrap;
 	top: 29%;
@@ -166,8 +166,8 @@
 	position: absolute;
 	top: 31%;
 	left: 74%;
-	width: 16%;
-	height: 16%;
+	width: 32%;
+	height: 8%;
 }
 
 .player_sublife_button {
@@ -175,8 +175,8 @@
 	position: absolute;
 	top: 31%;
 	left: 18%;
-	width: 16%;
-	height: 16%;
+	width: 32%;
+	height: 8%;
 }
 
 .player_addlife_emp_1 {
@@ -184,8 +184,8 @@
 	position: absolute;
 	top: 24%;
 	left: 46%;
-	width: 20%;
-	height: 8%;
+	width: 40%;
+	height: 4%;
 }
 
 .player_sublife_emp_1 {
@@ -193,8 +193,8 @@
 	position: absolute;
 	top: 62%;
 	left: 46%;
-	width: 20%;
-	height: 8%;
+	width: 40%;
+	height: 4%;
 }
 
 .player_addlife_emp_2 {
@@ -202,8 +202,8 @@
 	position: absolute;
 	top: 24%;
 	left: 16%;
-	width: 20%;
-	height: 8%;
+	width: 40%;
+	height: 4%;
 }
 
 .player_sublife_emp_2 {
@@ -211,8 +211,8 @@
 	position: absolute;
 	top: 62%;
 	left: 16%;
-	width: 20%;
-	height: 8%;
+	width: 40%;
+	height: 4%;
 }
 
 .player_addlife_emp_3 {
@@ -220,8 +220,8 @@
 	position: absolute;
 	top: 24%;
 	left: 76%;
-	width: 20%;
-	height: 8%;
+	width: 40%;
+	height: 4%;
 }
 
 .player_sublife_emp_3 {
@@ -229,13 +229,13 @@
 	position: absolute;
 	top: 62%;
 	left: 76%;
-	width: 20%;
-	height: 8%;
+	width: 40%;
+	height: 4%;
 }
 
 .player_poison {
 	position: absolute;
-	font-size: 18vh;
+	font-size: 9vh;
 	line-height: 1.0;
 	text-align: center;
 	top: 68%;
@@ -247,8 +247,8 @@
 	position: absolute;
 	top: 74%;
 	left: 64%;
-	width: 12%;
-	height: 12%;
+	width: 24%;
+	height: 6%;
 }
 
 .player_subpoison_button {
@@ -256,13 +256,13 @@
 	position: absolute;
 	top: 74%;
 	left: 30%;
-	width: 12%;
-	height: 12%;
+	width: 24%;
+	height: 6%;
 }
 
 .player_poison_alt {
 	position: absolute;
-	font-size: 18vh;
+	font-size: 9vh;
 	line-height: 1.0;
 	text-align: center;
 	top: 68%;
@@ -274,8 +274,8 @@
 	position: absolute;
 	top: 74%;
 	left: 30%;
-	width: 12%;
-	height: 12%;
+	width: 24%;
+	height: 6%;
 }
 
 .player_subpoison_button_alt {
@@ -283,13 +283,13 @@
 	position: absolute;
 	top: 74%;
 	left: 6%;
-	width: 12%;
-	height: 12%;
+	width: 24%;
+	height: 6%;
 }
 
 .player_poison_emp_1 {
 	position: absolute;
-	font-size: 18vh;
+	font-size: 9vh;
 	line-height: 1.0;
 	text-align: center;
 	top: 68%;
@@ -298,7 +298,7 @@
 
 .player_poison_emp_2 {
 	position: absolute;
-	font-size: 18vh;
+	font-size: 9vh;
 	line-height: 1.0;
 	text-align: center;
 	top: 68%;
@@ -307,7 +307,7 @@
 
 .player_poison_emp_3 {
 	position: absolute;
-	font-size: 18vh;
+	font-size: 9vh;
 	line-height: 1.0;
 	text-align: center;
 	top: 68%;
@@ -319,8 +319,8 @@
 	position: absolute;
 	top: 74%;
 	left: 60%;
-	width: 12%;
-	height: 12%;
+	width: 24%;
+	height: 6%;
 }
 
 .player_subpoison_emp_1 {
@@ -328,8 +328,8 @@
 	position: absolute;
 	top: 74%;
 	left: 36%;
-	width: 12%;
-	height: 12%;
+	width: 24%;
+	height: 6%;
 }
 
 .player_addpoison_emp_2 {
@@ -337,8 +337,8 @@
 	position: absolute;
 	top: 74%;
 	left: 30%;
-	width: 12%;
-	height: 12%;
+	width: 24%;
+	height: 6%;
 }
 
 .player_subpoison_emp_2 {
@@ -346,8 +346,8 @@
 	position: absolute;
 	top: 74%;
 	left: 6%;
-	width: 12%;
-	height: 12%;
+	width: 24%;
+	height: 6%;
 }
 
 .player_addpoison_emp_3 {
@@ -355,8 +355,8 @@
 	position: absolute;
 	top: 74%;
 	left: 90%;
-	width: 12%;
-	height: 12%;
+	width: 24%;
+	height: 6%;
 }
 
 .player_subpoison_emp_3 {
@@ -364,13 +364,13 @@
 	position: absolute;
 	top: 74%;
 	left: 66%;
-	width: 12%;
-	height: 12%;
+	width: 24%;
+	height: 6%;
 }
 
 .player_commander_1 {
 	position: absolute;
-	font-size: 12vh;
+	font-size: 6vh;
 	line-height: 1.0;
 	text-align: center;
 	top: 65%;
@@ -381,8 +381,8 @@
 	position: absolute;
 	top: 56%;
 	left: 53%;
-	width: 5%;
-	height: 5%;
+	width: 10%;
+	height: 3%;
 }
 
 .player_addcmdr_button_1 {
@@ -390,8 +390,8 @@
 	position: absolute;
 	top: 56%;
 	left: 58%;
-	width: 10%;
-	height: 10%;
+	width: 20%;
+	height: 5%;
 }
 
 .player_subcmdr_button_1 {
@@ -399,13 +399,13 @@
 	position: absolute;
 	top: 88%;
 	left: 58%;
-	width: 10%;
-	height: 10%;
+	width: 20%;
+	height: 5%;
 }
 
 .player_commander_2 {
 	position: absolute;
-	font-size: 12vh;
+	font-size: 6vh;
 	line-height: 1.0;
 	text-align: center;
 	top: 65%;
@@ -416,8 +416,8 @@
 	position: absolute;
 	top: 56%;
 	left: 65%;
-	width: 5%;
-	height: 5%;
+	width: 10%;
+	height: 3%;
 }
 
 .player_addcmdr_button_2 {
@@ -425,8 +425,8 @@
 	position: absolute;
 	top: 56%;
 	left: 70%;
-	width: 10%;
-	height: 10%;
+	width: 20%;
+	height: 5%;
 }
 
 .player_subcmdr_button_2 {
@@ -434,13 +434,13 @@
 	position: absolute;
 	top: 88%;
 	left: 70%;
-	width: 10%;
-	height: 10%;
+	width: 20%;
+	height: 5%;
 }
 
 .player_commander_3 {
 	position: absolute;
-	font-size: 12vh;
+	font-size: 6vh;
 	line-height: 1.0;
 	text-align: center;
 	top: 65%;
@@ -451,8 +451,8 @@
 	position: absolute;
 	top: 56%;
 	left: 77%;
-	width: 5%;
-	height: 5%;
+	width: 10%;
+	height: 3%;
 }
 
 .player_addcmdr_button_3 {
@@ -460,8 +460,8 @@
 	position: absolute;
 	top: 56%;
 	left: 82%;
-	width: 10%;
-	height: 10%;
+	width: 20%;
+	height: 5%;
 }
 
 .player_subcmdr_button_3 {
@@ -469,8 +469,8 @@
 	position: absolute;
 	top: 88%;
 	left: 82%;
-	width: 10%;
-	height: 10%;
+	width: 20%;
+	height: 5%;
 }
 
 .player_cmdr_scroll_left {
